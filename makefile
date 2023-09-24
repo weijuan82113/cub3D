@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/24 21:08:49 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/24 22:12:16 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ endif
 #cub3d
 SRC_DIR			=	./srcs
 SRC				=	test.c \
+					validation.c \
 					main.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))

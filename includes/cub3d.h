@@ -6,18 +6,24 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/23 18:27:03 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/24 22:11:40 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+#include "../minilibx-linux/mlx.h"
+#include "stdio.h"
+#include "stdbool.h"
 
 /* ************************** */
 /*         function           */
 /* ************************** */
 
 void test(void);
+bool validation(int argc, char **argv);
+
+
 
 #endif

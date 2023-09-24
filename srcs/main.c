@@ -6,14 +6,18 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/24 21:11:11 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/24 22:16:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main (void)
+int main (int argc, char **argv)
 {
-	test();
+	if (validation(argc, argv))
+	{
+		perror("Error\n");
+		return (1);
+	}
 	return (0);
 }
