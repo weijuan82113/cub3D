@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/23 19:01:22 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/24 21:08:49 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,6 @@ UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror -MMD -MP \
-
-#MAIN
-MAIN			=	./main.c
-MAIN_OBJ		=	$(MAIN:.c=.o)
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
@@ -43,6 +39,7 @@ endif
 #cub3d
 SRC_DIR			=	./srcs
 SRC				=	test.c \
+					main.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
@@ -53,8 +50,12 @@ DEPS			=	$(SRC:%.c=%.d)
 
 all: libft_make mlx_make $(NAME)
 
-$(NAME): $(MAIN_OBJ) $(OBJS)
-	$(CC) $(CFLAGS) $(IFLAGS) $(MAIN_OBJ) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(IFLAGS) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $$(dirname $@)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 libft_make:
 	make -C $(LIBFT_DIR)
