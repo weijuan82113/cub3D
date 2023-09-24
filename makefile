@@ -6,20 +6,24 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/23 15:40:13 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/23 19:01:22 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	cub3d
 
 UNAME			=	$(shell uname)
+# CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror \
-					-I$(INCLUDES_DIR) -I$(LIBFT_INC) -I$(MLX_INC)
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP \
+
+#MAIN
 MAIN			=	./main.c
 MAIN_OBJ		=	$(MAIN:.c=.o)
 
+#IFLAGS
 INCLUDES_DIR	=	./includes
+IFLAGS			=	-I$(INCLUDES_DIR) -I$(LIBFT_INC) -I$(MLX_INC)
 
 ##libft
 LIBFT_DIR		=	./libft
@@ -36,16 +40,21 @@ else
 MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm
 endif
 
+#cub3d
+SRC_DIR			=	./srcs
+SRC				=	test.c \
+
+SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
+
+OBJ_DIR			=	./objs
+OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
+
+DEPS			=	$(SRC:%.c=%.d)
 
 all: libft_make mlx_make $(NAME)
 
-$(NAME): $(MINILIBX) $(MAIN_OBJ) $(SL_OBJS)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(SL_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
-
-bonus: libft_make mlx_make $(BONUS_NAME)
-
-$(BONUS_NAME): $(MINILIBX) $(MAIN_OBJ) $(SL_BONUS_OBJS)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(SL_BONUS_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
+$(NAME): $(MAIN_OBJ) $(OBJS)
+	$(CC) $(CFLAGS) $(IFLAGS) $(MAIN_OBJ) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
 
 libft_make:
 	make -C $(LIBFT_DIR)
@@ -57,14 +66,18 @@ clean:
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
 	rm -f ${MAIN_OBJ}
-	rm -f ${SL_OBJS}
+	rm -rf ${OBJ_DIR}
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean
-	rm -f ${NAME} $(BONUS_NAME)
+	rm -f ${NAME}
 
 re: fclean all
 
 norm:
 	@norminette -v
-	norminette $(LIBFT_DIR) $(INCLUDES_DIR) $(SL_DIR)
+	norminette $(LIBFT_DIR) $(INCLUDES_DIR) $(SRC_DIR)
+
+.PHONY: all clean fclean re norm
+
+-include	$(DEPS)
