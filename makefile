@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/25 23:07:40 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/25 23:20:23 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,11 @@ endif
 
 #cub3d
 SRC_DIR			=	./srcs
-SRC				=	test.c \
-					validation.c \
-					main.c \
-					ft_error.c \
+##SRC				=	$(shell find $(SRC_DIR) -name '*.c')
+SRC				=	ft_error.c		\
+					main.c			\
+					test.c			\
+					validation.c	\
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
