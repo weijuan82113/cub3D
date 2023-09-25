@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:27:19 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 18:14:53 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/25 23:00:33 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 static void	save(char **line, char *find_return)
 {
@@ -18,7 +18,7 @@ static void	save(char **line, char *find_return)
 
 	tmp = *line;
 	if (*(find_return + 1) != '\0')
-		*line = get_next_line_utils("\0", find_return + 1);
+		*line = ft_strjoin("\0", find_return + 1);
 	else
 		*line = "\0";
 	free (tmp);
@@ -60,14 +60,14 @@ static char	*return_line(char **line)
 
 	if (**line != '\0')
 	{
-		ret_chr = get_next_line_utils(*line, "\0");
+		ret_chr = ft_strjoin(*line, "\0");
 		*line = "\0";
 		return (ret_chr);
 	}
 	return (NULL);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	ssize_t			read_byte;
 	char			*buf;
@@ -91,10 +91,11 @@ char	*get_next_line_bonus(int fd)
 		return (return_line(&line[fd]));
 	}
 	buf[read_byte] = '\0';
-	line[fd] = get_next_line_utils(line[fd], buf);
+	line[fd] = ft_strjoin(line[fd], buf);
 	free (buf);
-	return (get_next_line_bonus(fd));
+	return (get_next_line(fd));
 }
+
 // # include <stdbool.h>
 
 // int main(int ac, char **av) {
@@ -104,19 +105,18 @@ char	*get_next_line_bonus(int fd)
 //         return 1;
 //     }
 //     int fd1 = open(av[1], O_RDONLY);
-// 	// int fd2 = open(av[2], O_RDONLY);
-// 	// int fd3 = open(av[3], O_RDONLY);
+// 	int fd2 = open(av[2], O_RDONLY);
+// 	int fd3 = open(av[3], O_RDONLY);
 // 	//printf("fd is %d \n", fd);
 //     i = 0;
 // 	while (true) {
 //         char *s1 = get_next_line(fd1);
-// 		// char *s2 = get_next_line(fd2);
-// 		// char *s3 = get_next_line(fd3);
+// 		char *s2 = get_next_line(fd2);
+// 		char *s3 = get_next_line(fd3);
 // 		printf("%zu:%s \n",i, s1);
-// 		// printf("%zu:%s \n",i, s2);
-// 		// printf("%zu:%s \n",i, s3);
-//         //if (s1 == NULL || s2 == NULL || s3 == NULL) {
-// 		if (s1 == NULL) {
+// 		printf("%zu:%s \n",i, s2);
+// 		printf("%zu:%s \n",i, s3);
+//         if (s1 == NULL || s2 == NULL || s3 == NULL) {
 //             break;
 //         }
 //         free(s1);

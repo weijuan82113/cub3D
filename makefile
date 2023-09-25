@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/25 21:27:27 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/25 23:07:40 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ IFLAGS			=	-I$(INCLUDES_DIR) -I$(LIBFT_INC) -I$(MLX_INC)
 
 ##libft
 LIBFT_DIR		=	./libft
-LIBFT_INC		=	$(LIBFT_DIR)
+LIBFT_INC		=	./libft/includes
 LIBFT_LIB		=	-L $(LIBFT_DIR) -lft
 
 ##minilibx

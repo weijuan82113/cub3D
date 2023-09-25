@@ -6,12 +6,23 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2022/12/30 18:15:26 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/25 23:04:30 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME		= libft.a
+
+#	CC CFLAGS
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP
+
+#	DIRS
+LIB_DIR		= ./lib
+GNL_DIR		= ./gnl
+OBJ_DIR		= ./objs
+
 #	Sources
-SRCS			=ft_lstmap.c					\
+LIBFT_SRC		=ft_lstmap.c					\
 				ft_lstiter.c					\
 				ft_lstclear.c					\
 				ft_lstdelone.c					\
@@ -54,9 +65,6 @@ SRCS			=ft_lstmap.c					\
 				ft_strlcat.c 					\
 				ft_strlcpy.c					\
 				ft_strlen.c						\
-				get_next_line.c					\
-				get_next_line_bonus.c			\
-				get_next_line_utils.c			\
 				ft_printf.c						\
 				print_bx.c						\
 				print_char.c					\
@@ -69,24 +77,39 @@ SRCS			=ft_lstmap.c					\
 				ft_dequeue.c					\
 				ft_enqueue.c					\
 				ft_lst_ascsort.c				\
-				ft_lst_descsort.c				\
+				ft_lst_descsort.c
+
+GNL_SRC			=get_next_line.c				\
+				get_next_line_utils.c
+
+SRCS			= $(addprefix $(LIB_DIR)/, $(LIBFT_SRC)) \
+				$(addprefix $(GNL_DIR)/, $(GNL_SRC))
 
 #	Objects
-OBJS		= $(SRCS:%.c=%.o)
+OBJ		= $(SRCS:%.c=%.o)
+OBJS	= $(addprefix $(OBJ_DIR)/, $(OBJ))
 
-NAME		= libft.a
+#	Dependence
+DEPS	= $(SRCS:%.c=%.d)
 
-CFLAGS		= -Wall -Wextra -Werror
+# INCLUDES
+INCLUDE_DIR	= ./includes
+IFLAGS		= $(addprefix -I, $(INCLUDE_DIR))
 
-CC			= cc
+# RULES
+
+${NAME}:	${OBJS}
+	ar rcs ${NAME} ${OBJS}
+	#$(CC) $(CFLAGS) $(IFLAGS) $(OBJS) -o $@
+
+$(OBJ_DIR)/%.o	:%.c
+	@mkdir -p $$(dirname $@)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 all:		${NAME}
 
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
-
 clean:
-			rm -f ${OBJS}
+			rm -rf ${OBJ_DIR}
 
 fclean:		clean
 			rm -f ${NAME}
@@ -94,3 +117,5 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+-include	$(DEPS)

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/25 21:24:53 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/25 23:10:04 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include "../minilibx-linux/mlx.h"
 #include "error_msg.h"
 #include "libft.h"
-#include "stdio.h"
-#include "stdbool.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <fcntl.h>
 
 /* ************************** */
 /*         function           */
