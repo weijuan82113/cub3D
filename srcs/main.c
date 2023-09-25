@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/25 21:37:26 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/25 21:54:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main (int argc, char **argv)
 {
+	test();
 	if (validation(argc, argv) == true)
 		exit(EXIT_FAILURE);
 	return (EXIT_SUCCESS);
