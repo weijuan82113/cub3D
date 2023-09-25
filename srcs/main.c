@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/24 22:16:50 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/25 21:37:26 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int main (int argc, char **argv)
 {
-	if (validation(argc, argv))
-	{
-		perror("Error\n");
-		return (1);
-	}
-	return (0);
+	if (validation(argc, argv) == true)
+		exit(EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

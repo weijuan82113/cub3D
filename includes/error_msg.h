@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/25 21:24:53 by wchen            ###   ########.fr       */
+/*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
+/*   Updated: 2023/09/25 21:37:24 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef ERROR_MSG_H
+# define ERROR_MSG_H
 
-#include "../minilibx-linux/mlx.h"
-#include "error_msg.h"
-#include "libft.h"
-#include "stdio.h"
-#include "stdbool.h"
+# define ARG_ERR		"Error\nWrong Argument amount"
+# define FILE_EXT_ERR	"Error\nThe file extension is Wrong"
 
-/* ************************** */
-/*         function           */
-/* ************************** */
 
-void test(void);
-bool validation(int argc, char **argv);
-
-/*Error*/
-bool	ft_error(char *err_msg);
 
 #endif

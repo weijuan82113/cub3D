@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/09/24 22:12:16 by wchen            ###   ########.fr        #
+#    Updated: 2023/09/25 21:27:27 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC_DIR			=	./srcs
 SRC				=	test.c \
 					validation.c \
 					main.c \
+					ft_error.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 

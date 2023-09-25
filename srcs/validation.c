@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/24 22:29:52 by wchen            ###   ########.fr       */
+/*   Updated: 2023/09/25 21:25:20 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ bool validation(int argc, char**argv)
 {
 	(void) argv;
 	if (argc != 2)
-		return (true);
+		return (ft_error(ARG_ERR));
 	if (extension_check(argv[1]))
-		return (true);
+		return (ft_error(FILE_EXT_ERR));
 	return (false);
 }
