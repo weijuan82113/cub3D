@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:16:39 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/30 19:31:16 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:09:17 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ int map[height][width] = {
 {1, 0, 0, 0, 0, 0, 0, 0, 1},
 {1, 0, 0, 0, 0, 0, 0, 0, 1},
 {1, 0, 0, 0, 0, 0, 0, 0, 1},
+{1, 0, 0, 0, 0, 0, 0, 0, 0},
 {1, 0, 0, 0, 0, 0, 0, 0, 1},
 {1, 0, 0, 0, 0, 0, 0, 0, 1},
-{1, 0, 0, 0, 0, 0, 0, 0, 1},
-{1, 0, 0, 0, 0, 0, 0, 0, 1},
-{1, 0, 0, 0, 0, 0, 0, 0, 1},
-{1, 0, 0, 0, 0, 0, 0, 0, 1},
-{1, 0, 0, 0, 0, 0, 0, 0, 1},
+{1, 0, 1, 0, 0, 0, 0, 0, 1},
+{1, 0, 0, 1, 0, 0, 0, 0, 1},
+{1, 0, 0, 0, 1, 0, 0, 0, 1},
+{1, 0, 0, 0, 0, 1, 0, 0, 1},
 {1, 0, 0, 0, 0, 0, 1, 0, 1},
 {1, 0, 0, 0, 0, 0, 0, 1, 1}};
-const int block = 90;
-int x = 4 * block + 45;
-int y = block * 2;
-double initial_deg = 45;
+const int block = 190;
+int x = 7 * block;
+int y = 4 * block;
+double initial_deg = 180;
 // tan -> x / y
 
 static double setDegree(double degree) {
@@ -122,14 +122,18 @@ static double getDistance(double degree) {
 	return sqrt(pow(x - i * block - ((0 <= degree && degree <= 180) ? block - amarix : amarix), 2) + pow(y - j * block - ((90 <= degree && degree <= 270) ? block - amariy : amariy), 2));
 }
 
-int takasa = 80;
+int takasa = 140;
 int view_degree = 45;
 static int repaint(t_window *tmp) {
 	double display = 1000 / 2 * (double)45 / view_degree;
 	for (int i = 0; i < 1000; i++) {
-		double tall = display / getDistance(initial_deg + (double)(i - 500) / 500 * view_degree);
+		double tall = getDistance(initial_deg + (double)(i - 500) / 500 * view_degree);
+		if (tall != 0)
+			tall = display / tall;
+		else
+			tall = display;
 		int color = getColor(initial_deg + (double)(i - 500) / 500 * view_degree);
-		for (int j = -takasa * tall; j < (100 - takasa) * tall; j++) {
+		for (int j = -takasa * tall; j < (200 - takasa) * tall; j++) {
 			mlx_pixel_put(tmp->mlx, tmp->win, i, 500 - j, color);
 		}
 	}
