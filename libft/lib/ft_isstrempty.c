@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_isstrempty.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 21:03:56 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:21 by wchen            ###   ########.fr       */
+/*   Created: 2023/10/10 19:29:05 by wchen             #+#    #+#             */
+/*   Updated: 2023/10/10 20:26:35 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-bool	ft_error(char *err_msg)
+int ft_isstrempty(char *line)
 {
-	perror(err_msg);
-	return (true);
+	int strlen;
+	int i;
+
+	strlen = 0;
+	strlen = ft_strlen(line);
+	i = 0;
+	while(i < strlen)
+	{
+		if (line[i] > 32)
+			return (0);
+		i ++;
+	}
+	return (1);
+
 }

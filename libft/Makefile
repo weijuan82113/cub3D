@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2023/09/25 23:04:30 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/10 20:12:53 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ LIBFT_SRC		=ft_lstmap.c					\
 				ft_isalpha.c					\
 				ft_isascii.c					\
 				ft_isdigit.c					\
+				ft_isstrempty.c					\
 				ft_isprint.c					\
 				ft_memcpy.c						\
 				ft_memmove.c					\
