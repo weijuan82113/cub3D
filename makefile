@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/07 17:50:14 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/11 21:09:48 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,17 @@ endif
 
 #cub3d
 SRC_DIR			=	./srcs
-SRC				=	ft_error.c		\
-					main.c			\
-					test.c			\
-					validation.c	\
+SRC				=	ft_error.c				\
+					main.c					\
+					test.c					\
+					validation.c			\
+					fd_check.c				\
+					line_check.c			\
+					line_judge.c			\
+					create_map_array.c		\
+					identifier_judge.c		\
+					add_id_lst.c			\
+
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 

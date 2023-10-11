@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/10 21:48:30 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/11 21:09:20 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,17 @@ typedef struct				s_g_board
 
 void test(void);
 bool validation(int argc, char **argv);
+bool fd_check(int fd);
+bool line_check(char* line, t_g_board *g_board);
+bool line_judge(t_g_board *g_board, char *line);
+bool create_map_array(t_g_board *g_board);
+bool identifier_judge(t_g_board *g_board, char *line);
+bool add_id_lst(t_g_board *g_board, char** split);
 
 /*Error*/
 bool	ft_error(char *err_msg);
+
+
+
 
 #endif
