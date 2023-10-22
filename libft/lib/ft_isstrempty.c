@@ -6,11 +6,12 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:29:05 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/10 20:26:35 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/16 23:46:38 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int ft_isstrempty(char *line)
 {

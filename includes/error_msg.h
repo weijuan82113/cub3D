@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/10 22:11:47 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/16 22:57:24 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define INPUT_EMPTY_LINE_ERR 		"Error\nCan not input empty line in map"
 # define MAP_SIZE_ERR				"Error\nThe size of map is wrong"
 # define CHARACTER_ERR				"Error\nThe character in map is wrong"
+# define WALL_ERR					"Error\nThe map is not surrended by wall"
+# define INITIAL_MAP_ERR			"Error\nError occurs in map initial"
 
 # define IDENTIFIER "NO/SO/WE/EA/F/C"
 # define CHARACTER "0/1/N/S/E/W/ "

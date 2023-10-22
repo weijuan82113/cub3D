@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/11 21:07:23 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/22 23:14:38 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void debug_print_imglst(t_g_board *g_board)
 	temp_img = g_board->img_lst;
 	while (temp_img)
 	{
-		printf("print obj:%s\n", temp_img->obj);
-		printf("print img_path:%s\n", temp_img->img_path);
+		printf("obj:%s\n", temp_img->obj);
+		printf("img_path:%s\n", temp_img->img_path);
 		temp_img = temp_img->next;
 	}
 }
@@ -31,25 +31,28 @@ void debug_print_linelst(t_g_board *g_board)
 	t_node	*temp_line;
 
 	temp_line = g_board->line_lst;
+	printf("print line content:\n");
 	while (temp_line)
 	{
-		printf("print line content:%s\n", (char *)temp_line->content);
+		printf("%s\n", (char *)temp_line->content);
 		temp_line = temp_line->next;
 	}
-	printf("map h is %d\n", g_board->m_info->h);
-	printf("map w is %d\n", g_board->m_info->w);
 }
 
 void game_board_initial(t_g_board *g_board)
 {
-	g_board->x = 0;
-	g_board->y = 0;
 	g_board->t_count = 0;
 	g_board->line_lst = NULL;
 	g_board->img_lst = NULL;
-	g_board->m_info = malloc(sizeof(t_map_info *));
-	g_board->m_info->h = 0;
-	g_board->m_info->w = 0;
+	g_board->m_info = (t_map_info *)malloc(sizeof(t_map_info));
+	g_board->m_info->h = (int *)malloc(sizeof(int));
+	if (!g_board->m_info->h)
+		printf("malloc is failure\n");
+	*g_board->m_info->h = 0;
+	g_board->m_info->w = (int *)malloc(sizeof(int));
+	if (!g_board->m_info->w)
+		printf("malloc is failure\n");
+	*g_board->m_info->w = 0;
 }
 
 bool fd_check(int fd)
@@ -71,7 +74,7 @@ bool fd_check(int fd)
 			break;
 		if (line_check(line, g_board))
 			return (true);
-		//printf("%s",line);
+		printf("%s",line);
 		index ++;
 	}
 	debug_print_imglst(g_board);
