@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2023/10/10 20:12:53 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/25 21:16:47 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ LIBFT_SRC		=ft_lstmap.c					\
 				ft_strlcat.c 					\
 				ft_strlcpy.c					\
 				ft_strlen.c						\
+				ft_strlen_ntr.c					\
 				ft_printf.c						\
 				print_bx.c						\
 				print_char.c					\

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/22 21:24:26 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/25 23:25:01 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ typedef struct				s_g_board
 	t_node					*line_lst;//save the line readed from getline
 	t_img					*img_lst;//sava the identifier
 	t_map_info				*m_info;//map info
+	int						*p_position;//player position
 	int 					t_count;//the identifier amount count
+	int						*x;
+	int						*y;
 }							t_g_board;
 
 

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/10 20:12:57 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/25 21:16:11 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *c);
+size_t	ft_strlen_ntr(const char *c);
 void	*ft_memset(void *buf, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

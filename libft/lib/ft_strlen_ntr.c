@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_check.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_ntr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 20:44:38 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/25 23:03:51 by wchen            ###   ########.fr       */
+/*   Created: 2022/07/10 10:04:40 by wchen             #+#    #+#             */
+/*   Updated: 2023/10/25 21:26:09 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-bool line_check(char* line, t_g_board *g_board, int index)
+size_t	ft_strlen_ntr(const char *c)
 {
-	//printf("t_count:%d\n", g_board->t_count);
-	//printf("ft_isstrempty:%d\n", ft_isstrempty(line));
-	if (g_board->t_count < 6 && ft_isstrempty(line) == 0)
-		return (identifier_judge(g_board, line));
-	else if (g_board->t_count == 6)
-		return (line_judge(g_board, line, index));
-	return (false);
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0' && c[i] >= 32)
+		i++;
+	return (i);
 }
+// #include <string.h>
+// #include <stdio.h>
+
+// int main(void)
+// {
+// 	char * testtext = "";
+// 	printf("the string is %s strlen is %ld \n",testtext,ft_strlen(testtext));
+// 	printf("the string is %s ft_strlen is %ld \n",testtext,strlen(testtext));
+// 	return 0;
+// }
