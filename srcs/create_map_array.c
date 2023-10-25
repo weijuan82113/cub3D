@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/25 22:51:42 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/25 23:44:28 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,19 +170,44 @@ void	print_graph(t_graph *graph)
 	}
 }
 
+void print_vidited(int *visited,int size, int x)
+{
+	int i;
+
+	i = 0;
+	printf("-------started-------\n");fflush(stdout);
+	while (i < size)
+	{
+		//printf("i : %d\n", i);
+		printf("%d", visited[i]);fflush(stdout);
+		if(i % x == x-1)
+			printf("\n");fflush(stdout);
+		i ++;
+	}
+	printf("-------finished-------\n");fflush(stdout);
+}
+
 bool wall_bfs_check(t_g_board *g)
 {
 	t_graph *graph;
+	bool	bsq_result;
 
+	bsq_result = false;
 	graph = graph_create(*g->m_info->h * *g->m_info->w, g->m_info->map, *g->m_info->w);
 	if (!graph)
 		return (ft_error(GRAPH_INITIAL_ERR));
 	if (edge_initial(graph, g))
 		return (ft_error(EDGE_INITIAL_ERR));
 	print_graph(graph);
-	if (bsq_check(graph, *g->p_position))
+	bsq_result = bsq_check(graph, *g->p_position);
+	print_vidited (graph->visited, *g->m_info->h * *g->m_info->w, *g->m_info->w);
+	if(bsq_result)
 		return (ft_error(WALL_ERR));
 	return (false);
+	//bebug
+	// if (bsq_check(graph, *g->p_position))
+	// 	return (ft_error(WALL_ERR));
+	// return (false);
 }
 
 void fill_the_map_array(char *content, char *map, int w)
