@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 16:26:06 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 18:35:57 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,19 @@ typedef struct				s_mlx
 /*         function           */
 /* ************************** */
 
-void test(void);
-bool validation(int argc, char **argv);
-bool fd_check(int fd);
-bool line_check(char* line, t_mlx *mlx);
-bool line_judge(t_g_board *g_board, char *line);
-bool create_map_array(t_g_board *g_board);
-bool wall_check(t_node *line_lst, int h);
-bool identifier_judge(t_mlx *mlx, char *line);
-bool add_img_lst(t_mlx *mlx, char** split);
-bool add_color_lst(t_mlx *mlx, char** split);
-
+void	test(void);
+t_mlx	*mlx_initial(void);
+bool	validation(t_mlx *mlx, int argc, char **argv);
+bool	fd_check(t_mlx *mlx, int fd);
+bool	line_check(char* line, t_mlx *mlx);
+bool	line_judge(t_g_board *g_board, char *line);
+bool	create_map_array(t_g_board *g_board);
+bool 	wall_check(t_node *line_lst, int h);
+bool	identifier_judge(t_mlx *mlx, char *line);
+bool	add_img_lst(t_mlx *mlx, char** split);
+bool	add_color_lst(t_mlx *mlx, char** split);
+int		key_hook(int keycode, t_mlx *mlx);
+int		destroy_hook(t_mlx *mlx);
 /*Error*/
 bool	ft_error(char *err_msg);
 

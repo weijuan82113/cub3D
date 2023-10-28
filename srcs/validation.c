@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 16:08:18 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:36:48 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,25 @@ bool extension_check(char *file_name)
 	return (false);
 }
 
-bool file_check(char *file_path)
+bool file_check(t_mlx *mlx, char *file_path)
 {
 	int fd;
 	fd = open(file_path, O_RDONLY);
 	if (fd < 0)
 		return (ft_error(OPEN_FILE_ERR));
-	if (fd_check(fd))
+	if (fd_check(mlx, fd))
 		return (true);
 	return (false);
 }
 
-bool validation(int argc, char**argv)
+bool validation(t_mlx *mlx, int argc, char**argv)
 {
 	(void) argv;
 	if (argc != 2)
 		return (ft_error(ARG_ERR));
 	if (extension_check(argv[1]))
 		return (ft_error(FILE_EXT_ERR));
-	if (file_check(argv[1]))
+	if (file_check(mlx, argv[1]))
 		return (true);
 	return (false);
 }

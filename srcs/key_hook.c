@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 18:38:58 by wchen            ###   ########.fr       */
+/*   Created: 2023/10/28 18:14:47 by wchen             #+#    #+#             */
+/*   Updated: 2023/10/28 18:38:12 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main (int argc, char **argv)
+int	key_hook(int keycode, t_mlx *t_mlx)
 {
-	t_mlx	*mlx;
-
-	if (!(mlx = mlx_initial()))
-		exit(ft_error(MLX_INIT_ERR));
-	if (validation(mlx, argc, argv))
-		exit(EXIT_FAILURE);
-	mlx_key_hook(mlx->p_win, key_hook, mlx);
-	mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
-	mlx_loop(mlx->p_mlx);
-	return (EXIT_SUCCESS);
+	(void)t_mlx;
+	printf("keycode: %d\n", keycode);
+	if (keycode == ESC || keycode == KEY_Q)
+	{
+		printf("push!\n");
+		return(ft_error(GAME_OVER));
+	}
+	return (0);
 }

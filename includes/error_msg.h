@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 16:33:02 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 18:38:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define GRAPH_INITIAL_ERR			"Error\nError occurs in graph initial"
 # define EDGE_INITIAL_ERR			"Error\nError occurs in edge initial"
 # define IMG_INITIAL_ERR			"Error\nError occurs in img initial"
-
+# define GAME_OVER					"GAME OVER!"
 
 # define IDENTIFIER "NO/SO/WE/EA/F/C"
 # define CHARACTER "0/1/N/S/E/W/ "
@@ -41,6 +41,25 @@
 
 # define win_x	1024
 # define win_y	1024
+
+//KEYBOARD
+# define KEY_UP						0xff52
+# define KEY_DOWN					0xff54
+# define KEY_LEFT					0xff51
+# define KEY_RIGHT					0xff53
+# define KEY_W						0X77
+# define KEY_S						0x73
+# define KEY_A						0x61
+# define KEY_D						0x64
+# define KEY_Q						0x71
+# define KEY_SPC					0x20
+# define ESC						0xff1b
+# define UP							1
+# define DOWN						2
+# define LEFT						3
+# define RIGHT						4
+
+
 
 
 #endif

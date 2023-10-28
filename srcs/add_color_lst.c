@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:24:03 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:31:56 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ t_color_node	*ft_new_colorlst(char *obj, char *rbg)
 	t_color_node	*color;
 
 	if (!(color = malloc(sizeof(t_color_node))))
-		return (NULL);
-	color->obj = ft_cut_tr(obj);
-	color->rbg = ft_cut_tr(rbg);
+		return NULL;
+	if (!(color->obj = ft_cut_tr(obj)))
+		return NULL;
+	if (!(color->rbg = ft_cut_tr(rbg)))
+		return NULL;
 	return (color);
 }
 
