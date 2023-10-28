@@ -11,6 +11,8 @@
 		"deque": "c",
 		"string_view": "c",
 		"chrono": "c",
-		"variant": "c"
+		"variant": "c",
+		"random": "c",
+		"sstream": "c"
 	}
 }

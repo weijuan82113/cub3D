@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2023/10/25 21:16:47 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/28 17:22:29 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,8 @@ LIBFT_SRC		=ft_lstmap.c					\
 				ft_dequeue.c					\
 				ft_enqueue.c					\
 				ft_lst_ascsort.c				\
-				ft_lst_descsort.c
+				ft_lst_descsort.c				\
+				ft_cut_tr.c
 
 GNL_SRC			=get_next_line.c				\
 				get_next_line_utils.c

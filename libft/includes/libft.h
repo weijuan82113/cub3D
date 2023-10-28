@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/25 21:16:11 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:22:56 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ void	ft_dequeue(t_queue *q);
 void	merge_sort(t_node **headRef);
 void	ft_lst_ascsort(t_node **headRef);
 void	ft_lst_descsort(t_node **headRef);
+char 	*ft_cut_tr(char *src_str);
 
 #endif

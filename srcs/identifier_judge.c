@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/15 21:55:17 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:25:32 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,24 @@ bool incorrect_identify(char* s, char* compare)
 	return(true);
 }
 
-bool check_identifier(t_g_board *g_board, char *line)
+bool check_identifier(t_mlx *mlx, char *line)
 {
-	char **split_result;
-	split_result = ft_split(line, ' ');
-	if (incorrect_identify(split_result[0], IDENTIFIER))
+	char **line_split;
+
+	line_split = ft_split(line, ' ');
+	if (incorrect_identify(line_split[0], IDENTIFIER))
 		return (ft_error(IDENTIFIER_TYPE_ERR));
-	return (add_id_lst(g_board,split_result));
+	//separete color and img
+	if (ft_strlen(line_split[0]) == 2)
+		return (add_img_lst(mlx, line_split));
+	else
+		return (add_color_lst(mlx, line_split));
 }
 
-bool identifier_judge(t_g_board *g_board, char *line)
+bool identifier_judge(t_mlx *mlx, char *line)
 {
-	if (check_identifier(g_board, line))
+	if (check_identifier(mlx, line))
 		return (true);
-	g_board->t_count ++;
+	mlx->g->t_count ++;
 	return (false);
 }

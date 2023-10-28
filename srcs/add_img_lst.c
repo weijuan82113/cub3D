@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_id_lst.c                                       :+:      :+:    :+:   */
+/*   add_img_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/11 21:07:20 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:26:27 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_img	*ft_new_idlst(char *obj, char *path)
+t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 {
-	t_img	*img;
+	t_img_node	*img;
 
-	img = malloc(sizeof(t_img));
-	if (!img)
+	if (!(img = malloc(sizeof(t_img_node))))
 		return NULL;
-	img->obj = obj;
-	img->img_path = path;
+	img->obj = ft_cut_tr(obj);
+	img->img_path = ft_cut_tr(path);
+	img->h = img_h;
+	img->w = img_w;
+	if(!(img->p_img = mlx_xpm_file_to_image(mlx, path, &img->h, &img->w)))
+		return (NULL);
 	img->next = NULL;
 	return (img);
 }
 
-bool ft_idlstadd_back(t_img **head, t_img *new)
+bool ft_imglstadd_back(t_img_node **head, t_img_node *new)
 {
-	t_img	*tail;
+	t_img_node	*tail;
 
 	if (!head || !new)
 		return (ft_error(MALLOC_ERR));
@@ -43,13 +46,16 @@ bool ft_idlstadd_back(t_img **head, t_img *new)
 	return (false);
 }
 
-bool add_id_lst(t_g_board *g_board, char** split)
+bool add_img_lst(t_mlx *mlx, char** split)
 {
-	if (!g_board->img_lst)
-		g_board->img_lst = ft_new_idlst(split[0], split[1]);
+	if (!mlx->g->img_lst)
+	{
+		if (!(mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1])))
+			return (ft_error(IMG_INITIAL_ERR));
+	}
 	else
-		return (ft_idlstadd_back(&(g_board->img_lst), ft_new_idlst(split[0], split[1])));
-	if (!g_board->img_lst)
+		return (ft_imglstadd_back(&(mlx->g->img_lst), ft_new_imglst(mlx->p_mlx, split[0], split[1])));
+	if (!mlx->g->img_lst)
 		return (ft_error(MALLOC_ERR));
 	return (false);
 }

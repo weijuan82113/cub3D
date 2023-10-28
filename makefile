@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/15 21:33:57 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/28 15:27:29 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC				=	ft_error.c				\
 					line_judge.c			\
 					create_map_array.c		\
 					identifier_judge.c		\
-					add_id_lst.c			\
+					add_img_lst.c			\
+					add_color_lst.c			\
 					wall_check.c			\
 
 

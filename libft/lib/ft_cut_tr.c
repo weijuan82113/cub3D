@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_check.c                                       :+:      :+:    :+:   */
+/*   ft_cut_tr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 20:44:38 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:25:03 by wchen            ###   ########.fr       */
+/*   Created: 2023/10/28 17:21:40 by wchen             #+#    #+#             */
+/*   Updated: 2023/10/28 17:23:03 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+# include "libft.h"
 
-bool line_check(char* line, t_mlx *mlx)
+char *ft_cut_tr(char *src_str)
 {
-	if (mlx->g->t_count < identifier_amount && ft_isstrempty(line) == 0)
-		return (identifier_judge(mlx, line));
-	else if (mlx->g->t_count == identifier_amount)
-		return (line_judge(mlx->g, line));
-	return (false);
+	int str_ntr_len;
+	int i;
+	char *ret_str;
+
+	str_ntr_len = ft_strlen_ntr(src_str);
+	if (!(ret_str = malloc(sizeof(char) * (str_ntr_len + 1))))
+		return (NULL);
+	i = 0;
+	while(i < str_ntr_len)
+	{
+		ret_str[i] = src_str[i];
+	}
+	ret_str[i] = '\0';
+	return(ret_str);
 }

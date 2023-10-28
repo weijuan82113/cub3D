@@ -6,23 +6,35 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/25 23:18:30 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 17:24:49 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-void debug_print_imglst(t_g_board *g_board)
+void debug_print_imglst(t_img_node *img_lst)
 {
-	t_img	*temp_img;
-
-	temp_img = g_board->img_lst;
-	while (temp_img)
+	while (img_lst)
 	{
-		printf("obj:%s\n", temp_img->obj);
-		printf("img_path:%s\n", temp_img->img_path);
-		temp_img = temp_img->next;
+		printf("Print Image\n");
+		printf("obj:%s\n", img_lst->obj);
+		printf("img_path:%s\n", img_lst->img_path);
+		printf("p_img:%p\n", img_lst->p_img);
+		printf("h:%d\n", img_lst->h);
+		printf("w:%d\n", img_lst->w);
+		img_lst = img_lst->next;
+	}
+}
+
+void debug_print_colorlst(t_color_node *color_lst)
+{
+	while (color_lst)
+	{
+		printf("Print Color\n");
+		printf("obj:%s\n", color_lst->obj);
+		printf("color:%s\n", color_lst->rbg);
+		color_lst = color_lst->next;
 	}
 }
 
@@ -44,57 +56,75 @@ void debug_print_linelst(t_g_board *g_board)
 	printf("position:%d\n", *g_board->p_position);
 }
 
-void game_board_initial(t_g_board *g_board)
+bool game_board_initial(t_g_board *g_board)
 {
 	g_board->t_count = 0;
 	g_board->line_lst = NULL;
 	g_board->img_lst = NULL;
-	g_board->m_info = (t_map_info *)malloc(sizeof(t_map_info));
-	g_board->m_info->h = (int *)malloc(sizeof(int));
-	if (!g_board->m_info->h)
-		printf("malloc is failure\n");
+
+	g_board->line_lst = NULL;
+	g_board->img_lst = NULL;
+	g_board->color_lst = NULL;
+	if (!(g_board->m_info = malloc(sizeof(t_map_info))))
+		return (ft_error(MALLOC_ERR));
+	if (!(g_board->m_info->h = (int *)malloc(sizeof(int))))
+		return (ft_error(MALLOC_ERR));
 	*g_board->m_info->h = 0;
-	g_board->m_info->w = (int *)malloc(sizeof(int));
-	if (!g_board->m_info->w)
-		printf("malloc is failure\n");
+	if (!(g_board->m_info->w = (int *)malloc(sizeof(int))))
+		return (ft_error(MALLOC_ERR));
 	*g_board->m_info->w = 0;
-	g_board->p_position = (int *)malloc(sizeof(int));
-	if (!g_board->p_position)
-		printf("malloc is failure\n");
+	if (!(g_board->p_position = (int *)malloc(sizeof(int))))
+		return (ft_error(MALLOC_ERR));
 	*g_board->p_position = 0;
-	g_board->x = (int *)malloc(sizeof(int));
-	if (!g_board->x)
-		printf("malloc is failure\n");
+	if (!(g_board->x = (int *)malloc(sizeof(int))))
+		return (ft_error(MALLOC_ERR));
 	*g_board->x = 0;
-	g_board->y = (int *)malloc(sizeof(int));
-	if (!g_board->y)
-		printf("malloc is failure\n");
+	if (!(g_board->y = (int *)malloc(sizeof(int))))
+		return (ft_error(MALLOC_ERR));
 	*g_board->y = 0;
+	return (false);
 }
+
+t_mlx *mlx_initial()
+{
+	t_mlx		*mlx;
+
+	if (!(mlx = malloc(sizeof(t_mlx))))
+		return (NULL);
+	if (!(mlx->p_mlx = mlx_init()))
+		return (NULL);
+	if (!(mlx->p_win = mlx_new_window(mlx->p_mlx, win_x, win_y,"Cub3D")))
+		return (NULL);
+	if (!(mlx->g = malloc(sizeof(t_g_board))))
+		return (NULL);
+	if (game_board_initial(mlx->g))
+		return (NULL);
+	return (mlx);
+}
+
 
 bool fd_check(int fd)
 {
 	char		*line;
-	t_g_board	*g_board;
+	t_mlx		*mlx;
 
+	if (!(mlx = mlx_initial()))
+		return (ft_error(MLX_INIT_ERR));
 	line = NULL;
-	g_board = malloc(sizeof(*g_board));
-	if (!g_board)
-		return (true);
-	game_board_initial(g_board);
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break;
-		if (line_check(line, g_board))
+		if (line_check(line, mlx))
 			return (true);
 		printf("%s",line);
 	}
-	*g_board->p_position = *g_board->y * *g_board->m_info->w + *g_board->x;
-	debug_print_imglst(g_board);
-	debug_print_linelst(g_board);
-	if (create_map_array(g_board))
+	*mlx->g->p_position = *mlx->g->y * *mlx->g->m_info->w + *mlx->g->x;
+	debug_print_linelst(mlx->g);
+	debug_print_imglst(mlx->g->img_lst);
+	debug_print_colorlst(mlx->g->color_lst);
+	if (create_map_array(mlx->g))
 		return (true);
 	return (false);
 }
