@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fd_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 19:17:23 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 20:51:21 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void debug_print_linelst(t_g_board *g_board)
 		printf("%s\n", (char *)temp_line->content);
 		temp_line = temp_line->next;
 	}
-	printf("x:%d\n", *g_board->x);
-	printf("y:%d\n", *g_board->y);
 	printf("w:%d\n", *g_board->m_info->w);
 	printf("h:%d\n", *g_board->m_info->h);
 	printf("position:%d\n", *g_board->p_position);
@@ -59,21 +57,25 @@ void debug_print_linelst(t_g_board *g_board)
 bool fd_check(t_mlx *mlx, int fd)
 {
 	char		*line;
+	int x;
+	int y;
 
+	x = -1;
+	y = -1;
 	line = NULL;
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break;
-		if (line_check(line, mlx))
+		if (line_check(line, mlx, &x, &y))
 			return (true);
-		printf("%s",line);
+		//printf("%s",line);
 	}
-	*mlx->g->p_position = *mlx->g->y * *mlx->g->m_info->w + *mlx->g->x;
-	debug_print_linelst(mlx->g);
-	debug_print_imglst(mlx->g->img_lst);
-	debug_print_colorlst(mlx->g->color_lst);
+	*mlx->g->p_position = y * *mlx->g->m_info->w + x;
+	//debug_print_linelst(mlx->g);
+	//debug_print_imglst(mlx->g->img_lst);
+	//debug_print_colorlst(mlx->g->color_lst);
 	if (create_map_array(mlx->g))
 		return (true);
 	return (false);

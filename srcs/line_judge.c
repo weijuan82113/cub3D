@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_judge.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:39:33 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 20:51:39 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool is_player_character(char c, char **split)
 }
 
 
-bool character_judge(t_g_board *g,char *line)
+bool character_judge(t_g_board *g,char *line, int *x, int *y)
 {
 	int i;
 	char **c_split;
@@ -72,14 +72,10 @@ bool character_judge(t_g_board *g,char *line)
 			free(p_split);
 			return (ft_error(CHARACTER_ERR));
 		}
-		printf("h: %d\n", *g->m_info->h);
-		printf("i: %d\n", i);
 		if (is_player_character(line[i], p_split))
 		{
-			printf("SET h: %d\n", *g->m_info->h);
-			printf("SET i: %d\n", i);
-			*g->y = *g->m_info->h;
-			*g->x = i;
+			*y = *g->m_info->h;
+			*x = i;
 		}
 		i ++;
 	}
@@ -88,13 +84,13 @@ bool character_judge(t_g_board *g,char *line)
 	return (false);
 }
 
-bool line_judge(t_g_board *g_board, char *line)
+bool line_judge(t_g_board *g_board, char *line, int *x, int *y)
 {
 	if (*g_board->m_info->h != 0 && ft_isstrempty(line) == 1)
 		return (ft_error(INPUT_EMPTY_LINE_ERR));
 	if (ft_isstrempty(line) == 0)
 	{
-		if (character_judge(g_board, line))
+		if (character_judge(g_board, line, x, y))
 			return (true);
 		save_line_lst(g_board, line);
 		*g_board->m_info->h = *g_board->m_info->h + 1;

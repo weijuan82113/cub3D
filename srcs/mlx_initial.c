@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_initial.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:37:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 19:16:39 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 20:47:48 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ bool game_board_initial(t_g_board *g_board)
 	if (!(g_board->p_position = (int *)malloc(sizeof(int))))
 		return (ft_error(MALLOC_ERR));
 	*g_board->p_position = 0;
-	if (!(g_board->x = (int *)malloc(sizeof(int))))
-		return (ft_error(MALLOC_ERR));
-	*g_board->x = 0;
-	if (!(g_board->y = (int *)malloc(sizeof(int))))
-		return (ft_error(MALLOC_ERR));
-	*g_board->y = 0;
 	return (false);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 18:44:44 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 20:52:42 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ typedef struct				s_g_board
 	t_map_info				*m_info;//map info
 	int						*p_position;//player position
 	int 					t_count;//the identifier amount count
-	int						*x;
-	int						*y;
 }							t_g_board;
 
 typedef struct				s_mlx
@@ -92,8 +90,8 @@ void	test(void);
 t_mlx	*mlx_initial(void);
 bool	validation(t_mlx *mlx, int argc, char **argv);
 bool	fd_check(t_mlx *mlx, int fd);
-bool	line_check(char* line, t_mlx *mlx);
-bool	line_judge(t_g_board *g_board, char *line);
+bool	line_check(char* line, t_mlx *mlx, int *x, int *y);
+bool	line_judge(t_g_board *g_board, char *line, int *x, int *y);
 bool	create_map_array(t_g_board *g_board);
 bool 	wall_check(t_node *line_lst, int h);
 bool	identifier_judge(t_mlx *mlx, char *line);
