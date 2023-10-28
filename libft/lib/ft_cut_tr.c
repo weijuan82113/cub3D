@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:21:40 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:23:03 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 19:18:37 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char *ft_cut_tr(char *src_str)
 	while(i < str_ntr_len)
 	{
 		ret_str[i] = src_str[i];
+		i ++;
 	}
 	ret_str[i] = '\0';
 	return(ret_str);

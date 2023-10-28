@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:31:58 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 19:18:59 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 		return NULL;
 	img->h = img_h;
 	img->w = img_w;
-	if(!(img->p_img = mlx_xpm_file_to_image(mlx, path, &img->h, &img->w)))
+	if(!(img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h, &img->w)))
 		return (NULL);
 	img->next = NULL;
 	return (img);
@@ -50,6 +50,7 @@ bool ft_imglstadd_back(t_img_node **head, t_img_node *new)
 
 bool add_img_lst(t_mlx *mlx, char** split)
 {
+
 	if (!mlx->g->img_lst)
 	{
 		if (!(mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1])))

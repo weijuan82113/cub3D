@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:25:32 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/28 19:17:51 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool check_identifier(t_mlx *mlx, char *line)
 	char **line_split;
 
 	line_split = ft_split(line, ' ');
+
 	if (incorrect_identify(line_split[0], IDENTIFIER))
 		return (ft_error(IDENTIFIER_TYPE_ERR));
 	//separete color and img

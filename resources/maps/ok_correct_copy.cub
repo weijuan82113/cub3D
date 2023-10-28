@@ -1,13 +1,13 @@
-NO resources/textures/bluestone.xpm
-SO resources/textures/colorstone.xpm
-WE resources/textures/greystone.xpm
-EA resources/textures/purplestone.xpm
+NO ./resources/textures/bluestone.xpm
+SO ./resources/textures/colorstone.xpm
+WE ./resources/textures/greystone.xpm
+EA ./resources/textures/purplestone.xpm
 F 220,100,0
 C 225,30,0
 
 11111111111
 100010101011
 100000001001
-100000000111
-10000N11101
-1111111111
+100000000101
+10000N111001
+111111111111
