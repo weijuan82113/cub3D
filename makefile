@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/29 18:07:56 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/29 22:26:30 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			=	cub3d
 UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -MP \
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP -fsanitize=address\
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
@@ -54,6 +54,7 @@ SRC				=	ft_error.c				\
 					key_hook.c				\
 					destory_hook.c			\
 					free_all.c				\
+					free_graph.c
 
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))

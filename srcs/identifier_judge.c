@@ -6,13 +6,13 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 19:34:56 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 22:11:49 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool incorrect_identify(char* s, char* compare)
+bool incorrect_identify(char *s, char *compare)
 {
 	int i;
 	char **identifier_array;

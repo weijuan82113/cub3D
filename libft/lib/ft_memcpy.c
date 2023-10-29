@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 10:04:40 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/17 11:33:53 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 22:24:10 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	{
 		*dst_ptr++ = *src_ptr++;
 	}
+	*dst_ptr = '\0';
 	return (dst);
 }
 // int main(void)

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 19:33:50 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 19:58:13 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ bool ft_colorlstadd_back(t_color_node **head, t_color_node *new)
 {
 	t_color_node	*tail;
 
-	printf("debug_add_back:1\n");
 	if (!head || !new)
 		return (ft_error(MALLOC_ERR));
 	else if (!*head)

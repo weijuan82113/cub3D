@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_judge.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 20:51:39 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/10/29 22:23:06 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ bool character_judge(t_g_board *g,char *line, int *x, int *y)
 	{
 		if (incorrect_character(line[i], c_split))
 		{
-			free(c_split);
-			free(p_split);
+			free_split(c_split);
+			free_split(p_split);
 			return (ft_error(CHARACTER_ERR));
 		}
 		if (is_player_character(line[i], p_split))
@@ -79,20 +79,25 @@ bool character_judge(t_g_board *g,char *line, int *x, int *y)
 		}
 		i ++;
 	}
-	free(c_split);
-	free(p_split);
+	free_split(c_split);
+	free_split(p_split);
 	return (false);
 }
 
 bool line_judge(t_g_board *g_board, char *line, int *x, int *y)
 {
+	char *content;
+
 	if (*g_board->m_info->h != 0 && ft_isstrempty(line) == 1)
 		return (ft_error(INPUT_EMPTY_LINE_ERR));
 	if (ft_isstrempty(line) == 0)
 	{
 		if (character_judge(g_board, line, x, y))
 			return (true);
-		save_line_lst(g_board, line);
+		if (!(content = malloc(sizeof(char) * (ft_strlen(line) + 1))))
+			return (ft_error(MALLOC_ERR));
+		ft_memcpy(content, line, ft_strlen(line));
+		save_line_lst(g_board, content);
 		*g_board->m_info->h = *g_board->m_info->h + 1;
 	}
 	return (false);

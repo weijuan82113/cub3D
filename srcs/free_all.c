@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:06:52 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 19:15:23 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 22:28:14 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void free_map(t_map_info **m_info, void (*del)(void *))
 		i = 0;
 		while (i < *p_m_info->h)
 			del(p_m_info->map[i]);
-		del(p_m_info->map[i]);
 		del(p_m_info->map);
 	}
 	del(p_m_info->h);
@@ -92,7 +91,6 @@ void free_map(t_map_info **m_info, void (*del)(void *))
 	del(p_m_info);
 	p_m_info = NULL;
 }
-
 
 void free_g_board(t_g_board **g)
 {
@@ -121,6 +119,11 @@ void free_all(t_mlx *mlx)
 		free(mlx->p_mlx);
 		mlx->p_mlx = NULL;
 	}
+	if (mlx->p_win)
+	{
+		free(mlx->p_win);
+		mlx->p_win = NULL;
+	}
 	if(mlx->g)
 		free_g_board(&mlx->g);
 	free (mlx);
@@ -139,7 +142,5 @@ void free_split(char **split)
 		free(split[i]);
 		i ++;
 	}
-	free(split[i]);
 	free(split);
-	printf("free split\n");
 }

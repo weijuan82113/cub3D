@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 20:55:53 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/10/29 22:01:12 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,12 +195,20 @@ bool wall_bfs_check(t_g_board *g)
 	bsq_result = false;
 	graph = graph_create(*g->m_info->h * *g->m_info->w, g->m_info->map, *g->m_info->w);
 	if (!graph)
+	{
+		free_graph(graph);
 		return (ft_error(GRAPH_INITIAL_ERR));
+	}
 	if (edge_initial(graph, g))
+	{
+		free_graph(graph);
 		return (ft_error(EDGE_INITIAL_ERR));
-	//print_graph(graph);
+	}
+	//print_vidited (graph->visited, *g->m_info->h * *g->m_info->w, *g->m_info->w);
 	bsq_result = bsq_check(graph, *g->p_position);
 	//print_vidited (graph->visited, *g->m_info->h * *g->m_info->w, *g->m_info->w);
+	//print_graph(graph);
+	free_graph(graph);
 	if(bsq_result)
 		return (ft_error(WALL_ERR));
 	return (false);

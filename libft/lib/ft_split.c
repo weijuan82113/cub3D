@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@42studen>                     +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:11:43 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/06 00:37:52 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 22:22:09 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static char	**split_char(char *judge_char, char c, char **ret_char)
 	while (*judge_char != '\0')
 	{
 		i = split_len (judge_char, c);
-		ret_char[y] = (char *)malloc(sizeof(char) * i + 1);
+		ret_char[y] = (char *)malloc(sizeof(char) * (i + 1));
 		if (!ret_char[y])
 			return (free_all(ret_char, y));
 		x = 0;
@@ -103,7 +103,7 @@ char	**ft_split(char const *s, char c)
 	if (!judge_char)
 		return (NULL);
 	count = count_split_area(s, c, judge_char);
-	ret_char = (char **)malloc(sizeof(char *) * count + 1);
+	ret_char = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!ret_char)
 	{
 		free (judge_char);

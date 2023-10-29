@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 18:29:08 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 20:23:51 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		key_hook(int keycode, t_mlx *mlx);
 int		destroy_hook(t_mlx *mlx);
 void	free_all(t_mlx *mlx);
 void	free_split(char **split);
+void	free_graph(t_graph *graph);
 /*Error*/
 bool	ft_error(char *err_msg);
 
