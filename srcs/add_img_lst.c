@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 19:18:59 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 19:33:45 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,11 @@ bool ft_imglstadd_back(t_img_node **head, t_img_node *new)
 
 bool add_img_lst(t_mlx *mlx, char** split)
 {
-
 	if (!mlx->g->img_lst)
-	{
-		if (!(mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1])))
-			return (ft_error(IMG_INITIAL_ERR));
-	}
+		mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1]);
 	else
 		return (ft_imglstadd_back(&(mlx->g->img_lst), ft_new_imglst(mlx->p_mlx, split[0], split[1])));
 	if (!mlx->g->img_lst)
-		return (ft_error(MALLOC_ERR));
+		return (ft_error(IMG_INITIAL_ERR));
 	return (false);
 }

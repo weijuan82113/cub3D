@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 17:31:56 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 19:33:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_color_node	*ft_new_colorlst(char *obj, char *rbg)
 		return NULL;
 	if (!(color->rbg = ft_cut_tr(rbg)))
 		return NULL;
+	color->next = NULL;
 	return (color);
 }
 
@@ -29,6 +30,7 @@ bool ft_colorlstadd_back(t_color_node **head, t_color_node *new)
 {
 	t_color_node	*tail;
 
+	printf("debug_add_back:1\n");
 	if (!head || !new)
 		return (ft_error(MALLOC_ERR));
 	else if (!*head)
@@ -50,6 +52,6 @@ bool add_color_lst(t_mlx *mlx, char** split)
 	else
 		return (ft_colorlstadd_back(&(mlx->g->color_lst), ft_new_colorlst(split[0], split[1])));
 	if (!mlx->g->color_lst)
-		return (ft_error(MALLOC_ERR));
+		return (ft_error(COLOR_INITIAL_ERR));
 	return (false);
 }

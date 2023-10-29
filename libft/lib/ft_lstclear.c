@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:39:10 by wchen             #+#    #+#             */
-/*   Updated: 2022/12/30 19:38:13 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 17:42:03 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_lstclear(t_node **lst, void (*del)(void*))
 	p_lst = *lst;
 	while (p_lst)
 	{
-		temp = p_lst -> next;
+		temp = p_lst->next;
 		ft_lstdelone(p_lst, del);
 		p_lst = temp;
 	}

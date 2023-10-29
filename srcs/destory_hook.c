@@ -6,16 +6,11 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:35:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/28 18:37:39 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 18:08:32 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d.h"
-
-void free_all(t_mlx *mlx)
-{
-	(void) mlx;
-}
 
 int		destroy_hook(t_mlx *mlx)
 {
