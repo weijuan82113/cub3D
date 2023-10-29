@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fd_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 18:12:50 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 20:34:03 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool fd_check(t_mlx *mlx, int fd)
 			break;
 		if (line_check(line, mlx, &x, &y))
 			return (true);
-		free (line);
+		//free (line);
 		//printf("%s",line);
 	}
 	if (x == -1 || y == -1)

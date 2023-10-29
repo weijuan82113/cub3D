@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 18:29:08 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 21:10:22 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ typedef struct s_img
 	void			*p_img;
 	int				h;
 	int				w;
+	void			*path;
+	int				bpp;
+	int				length;
+	int				endian;
 	struct s_img	*next;
 }				t_img_node;
 
@@ -79,6 +83,11 @@ typedef struct				s_mlx
 {
 	void		*p_mlx;
 	void		*p_win;
+	void		*image;
+	int bpp;
+	int length;
+	int endian;
+	void *path;
 	t_g_board	*g;
 }							t_mlx;
 
@@ -86,6 +95,7 @@ typedef struct				s_mlx
 /*         function           */
 /* ************************** */
 
+void	draw(t_mlx *mlx);
 void	test(void);
 t_mlx	*mlx_initial(void);
 bool	validation(t_mlx *mlx, int argc, char **argv);

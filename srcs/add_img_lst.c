@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_img_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 19:33:45 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 21:10:49 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 	img->w = img_w;
 	if(!(img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h, &img->w)))
 		return (NULL);
+	img->path = mlx_get_data_addr(img->p_img, &img->bpp, &img->length, &img->endian);
 	img->next = NULL;
 	return (img);
 }
