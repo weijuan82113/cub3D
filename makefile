@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/28 18:35:43 by wchen            ###   ########.fr        #
+#    Updated: 2023/10/29 18:07:56 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC				=	ft_error.c				\
 					mlx_initial.c			\
 					key_hook.c				\
 					destory_hook.c			\
+					free_all.c				\
 
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))

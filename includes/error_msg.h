@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 10:31:29 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 19:30:34 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define GRAPH_INITIAL_ERR			"Error\nError occurs in graph initial"
 # define EDGE_INITIAL_ERR			"Error\nError occurs in edge initial"
 # define IMG_INITIAL_ERR			"Error\nError occurs in img initial"
+# define COLOR_INITIAL_ERR			"Error\nError occurs in color initial"
 # define PLAYER_POSITON_ERR			"Error\nThere is no player in map"
 # define GAME_OVER					"GAME OVER!"
 

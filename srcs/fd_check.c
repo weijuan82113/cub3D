@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 10:33:13 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 18:12:50 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ bool fd_check(t_mlx *mlx, int fd)
 			break;
 		if (line_check(line, mlx, &x, &y))
 			return (true);
+		free (line);
 		//printf("%s",line);
 	}
 	if (x == -1 || y == -1)

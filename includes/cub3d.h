@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 16:59:31 by wchen            ###   ########.fr       */
+/*   Updated: 2023/10/29 18:29:08 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ bool	add_img_lst(t_mlx *mlx, char** split);
 bool	add_color_lst(t_mlx *mlx, char** split);
 int		key_hook(int keycode, t_mlx *mlx);
 int		destroy_hook(t_mlx *mlx);
+void	free_all(t_mlx *mlx);
+void	free_split(char **split);
 /*Error*/
 bool	ft_error(char *err_msg);
 
