@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_msg.h                                        :+:      :+:    :+:   */
+/*   properties.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 19:30:34 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/01 22:29:06 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_MSG_H
-# define ERROR_MSG_H
+#ifndef PROPERTIES_H
+# define PROPERTIES_H
 
 # define MLX_INIT_ERR				"Error\nError occurs in mlx initial"
 # define ARG_ERR					"Error\nWrong Argument amount"
@@ -29,6 +29,7 @@
 # define EDGE_INITIAL_ERR			"Error\nError occurs in edge initial"
 # define IMG_INITIAL_ERR			"Error\nError occurs in img initial"
 # define COLOR_INITIAL_ERR			"Error\nError occurs in color initial"
+# define COLOR_INPUT_ERR			"Error\nWrong color input"
 # define PLAYER_POSITON_ERR			"Error\nThere is no player in map"
 # define GAME_OVER					"GAME OVER!"
 
@@ -36,13 +37,13 @@
 # define CHARACTER "0/1/N/S/E/W/ "
 # define PLAYER "N/S/E/W"
 
-# define identifier_amount 6
+# define IDENTIFIER_NUM 6
 
-# define img_h	64
-# define img_w	64
+# define IMG_H	64
+# define IMG_W	64
 
-# define win_x	1024
-# define win_y	1024
+# define WIN_X	1024
+# define WIN_Y	1024
 
 //KEYBOARD
 # define KEY_UP						0xff52
@@ -60,8 +61,5 @@
 # define DOWN						2
 # define LEFT						3
 # define RIGHT						4
-
-
-
 
 #endif

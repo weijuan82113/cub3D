@@ -6,13 +6,13 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 21:41:26 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/01 20:08:09 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool extension_check(char *file_name)
+bool	extension_check(char *file_name)
 {
 	char	*ext;
 	char	*ber;
@@ -33,9 +33,10 @@ bool extension_check(char *file_name)
 	return (false);
 }
 
-bool file_check(t_mlx *mlx, char *file_path)
+bool	file_check(t_mlx *mlx, char *file_path)
 {
-	int fd;
+	int	fd;
+
 	fd = open(file_path, O_RDONLY);
 	if (fd < 0)
 		return (ft_error(OPEN_FILE_ERR));
@@ -44,9 +45,9 @@ bool file_check(t_mlx *mlx, char *file_path)
 	return (false);
 }
 
-bool validation(t_mlx *mlx, int argc, char**argv)
+bool	validation(t_mlx *mlx, int argc, char **argv)
 {
-	(void) argv;
+	(void)argv;
 	if (argc != 2)
 		return (ft_error(ARG_ERR));
 	if (extension_check(argv[1]))

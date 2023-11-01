@@ -6,22 +6,18 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 22:30:33 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/01 20:46:07 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q cub3d");
-}
-
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_mlx	*mlx;
 
-	if (!(mlx = mlx_initial()))
+	mlx = mlx_initial();
+	if (!mlx)
 	{
 		free_all(mlx);
 		exit(ft_error(MLX_INIT_ERR));

@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/29 22:26:30 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/01 23:19:55 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,15 @@ SRC				=	ft_error.c				\
 					key_hook.c				\
 					destory_hook.c			\
 					free_all.c				\
-					free_graph.c
-
+					free_graph.c			\
+					ft_lst_free.c			\
+					wall_bfs_check.c		\
+					edge_initial.c			\
+					bfs_check.c				\
+					debug/debug_printf.c	\
+					rgb_atoi.c
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
-
-# SRC				=	$(shell find $(SRC_DIR) -name '*.c')
 
 OBJ_DIR			=	./objs
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

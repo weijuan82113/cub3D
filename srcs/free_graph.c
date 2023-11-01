@@ -6,26 +6,26 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:08:21 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 20:23:40 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/01 20:47:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
-void free_graph(t_graph *graph)
+void	free_graph(t_graph *graph)
 {
-	int i;
+	int	i;
 
 	if (!graph)
-		return;
+		return ;
 	if (!graph->adj_lsts)
-		return;
+		return ;
 	i = 0;
 	while (i < graph->num_vertex)
 	{
 		if (graph->adj_lsts[i])
 			ft_lstclear(&graph->adj_lsts[i], free);
-		i ++;
+		i++;
 	}
 	free(graph->adj_lsts);
 	free(graph->visited);
