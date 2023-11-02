@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:37:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:34:56 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 21:20:35 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	g_init(t_g_board *g_board)
 
 bool	game_board_initial(t_g_board *g_board)
 {
+	g_init(g_board);
 	g_board->m_info = malloc(sizeof(t_map_info));
 	if (!g_board->m_info)
 		return (ft_error(MALLOC_ERR));
