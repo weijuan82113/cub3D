@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:09:34 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 23:51:52 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	fill_the_map_array(char *content, char *map, int w)
 		map[i] = ' ';
 		i++;
 	}
+	map[i] = '\0';
 }
 
 bool	initial_map_array(t_g_board *g)
@@ -59,7 +60,7 @@ bool	map_check(t_g_board *g_board)
 		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
 		return (ft_error(INITIAL_MAP_ERR));
-	//debug_print_map_array(g_board->m_info->map);
+	debug_print_map_array(g_board->m_info->map);
 	if (wall_bfs_check(g_board))
 		return (true);
 	return (false);
