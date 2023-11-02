@@ -6,7 +6,7 @@
 #    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/10/29 19:54:45 by kitsuki          ###   ########.fr        #
+#    Updated: 2023/11/02 21:26:10 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			=	cub3d
 UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -MP \
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP -fsanitize=address\
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
@@ -40,7 +40,6 @@ endif
 SRC_DIR			=	./srcs
 SRC				=	ft_error.c				\
 					main.c					\
-					test.c					\
 					validation.c			\
 					fd_check.c				\
 					line_check.c			\
@@ -54,12 +53,16 @@ SRC				=	ft_error.c				\
 					key_hook.c				\
 					destory_hook.c			\
 					free_all.c				\
+					free_graph.c			\
+					ft_lst_free.c			\
+					wall_bfs_check.c		\
+					edge_initial.c			\
+					bfs_check.c				\
+					debug/debug_printf.c	\
+					rgb_atoi.c        \
 					start.c
 
-
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
-
-# SRC				=	$(shell find $(SRC_DIR) -name '*.c')
 
 OBJ_DIR			=	./objs
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

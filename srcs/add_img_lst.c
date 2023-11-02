@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 21:10:49 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/02 21:21:31 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,27 @@ t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 {
 	t_img_node	*img;
 
-	if (!(img = malloc(sizeof(t_img_node))))
-		return NULL;
-	if (!(img->obj = ft_cut_tr(obj)))
-		return NULL;
-	if (!(img->img_path = ft_cut_tr(path)))
-		return NULL;
-	img->h = img_h;
-	img->w = img_w;
-	if(!(img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h, &img->w)))
+	img = malloc(sizeof(t_img_node));
+	if (!img)
+		return (NULL);
+	img->obj = ft_cut_tr(obj);
+	if (!img->obj)
+		return (NULL);
+	img->img_path = ft_cut_tr(path);
+	if (!img->img_path)
+		return (NULL);
+	img->h = IMG_H;
+	img->w = IMG_W;
+	img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h,
+			&img->w);
+	if (!img->p_img)
 		return (NULL);
 	img->path = mlx_get_data_addr(img->p_img, &img->bpp, &img->length, &img->endian);
 	img->next = NULL;
 	return (img);
 }
 
-bool ft_imglstadd_back(t_img_node **head, t_img_node *new)
+bool	ft_imglstadd_back(t_img_node **head, t_img_node *new)
 {
 	t_img_node	*tail;
 
@@ -49,12 +54,13 @@ bool ft_imglstadd_back(t_img_node **head, t_img_node *new)
 	return (false);
 }
 
-bool add_img_lst(t_mlx *mlx, char** split)
+bool	add_img_lst(t_mlx *mlx, char **split)
 {
 	if (!mlx->g->img_lst)
 		mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1]);
 	else
-		return (ft_imglstadd_back(&(mlx->g->img_lst), ft_new_imglst(mlx->p_mlx, split[0], split[1])));
+		return (ft_imglstadd_back(&(mlx->g->img_lst), ft_new_imglst(mlx->p_mlx,
+					split[0], split[1])));
 	if (!mlx->g->img_lst)
 		return (ft_error(IMG_INITIAL_ERR));
 	return (false);

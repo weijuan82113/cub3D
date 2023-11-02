@@ -13,6 +13,8 @@
 		"chrono": "c",
 		"variant": "c",
 		"random": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"cub3d.h": "c",
+		"mlx.h": "c"
 	}
 }

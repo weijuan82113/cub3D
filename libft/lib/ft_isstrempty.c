@@ -6,26 +6,26 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:29:05 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 18:13:05 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/01 19:58:19 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int ft_isstrempty(char *line)
+int	ft_isstrempty(char *line)
 {
-	int strlen;
-	int i;
+	int	strlen;
+	int	i;
 
 	strlen = 0;
 	strlen = ft_strlen(line);
 	i = 0;
-	while(i < strlen)
+	while (i < strlen)
 	{
 		if (line[i] > 32)
 			return (0);
-		i ++;
+		i++;
 	}
 	return (1);
 }
