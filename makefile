@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/01 23:19:55 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/02 20:18:03 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ endif
 SRC_DIR			=	./srcs
 SRC				=	ft_error.c				\
 					main.c					\
-					test.c					\
 					validation.c			\
 					fd_check.c				\
 					line_check.c			\
