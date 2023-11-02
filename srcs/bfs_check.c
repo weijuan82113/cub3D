@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 21:28:10 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:28:19 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:04:18 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	enqueue_not_visied_lst(t_bfs *bfs, t_graph *graph, int content)
 	return (false);
 }
 
-bool	bfs_check(t_graph *graph, int start)
+bool	bfs_check(t_graph *graph, int start, bool result)
 {
 	t_bfs	bfs;
 
@@ -51,14 +51,14 @@ bool	bfs_check(t_graph *graph, int start)
 			{
 				if (enqueue_not_visied_lst(&bfs, graph,
 						*(int *)bfs.temp->content))
-					return (true);
+					result = true;
 			}
 			else if (graph->visited[*(int *)bfs.temp->content] == 2)
-				return (ft_error(WALL_ERR));
+				result = ft_error(WALL_ERR);
 			bfs.temp = bfs.temp->next;
 		}
 		ft_dequeue(bfs.q);
 	}
 	free(bfs.q);
-	return (false);
+	return (result);
 }

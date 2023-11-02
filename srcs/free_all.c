@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:06:52 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 21:37:09 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:22:42 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ static void	free_map(t_map_info **m_info, void (*del)(void *))
 	if (!m_info)
 		return ;
 	p_m_info = *m_info;
-	if (p_m_info)
+	if (!p_m_info)
+		return ;
+	i = 0;
+	while (i < *p_m_info->h && p_m_info->map)
 	{
-		i = 0;
-		while (i < *p_m_info->h)
-			del(p_m_info->map[i]);
-		del(p_m_info->map);
+		del(p_m_info->map[i]);
+		i ++;
 	}
+	del(p_m_info->map);
 	del(p_m_info->h);
 	del(p_m_info->w);
 	del(p_m_info);
