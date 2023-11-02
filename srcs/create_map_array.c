@@ -59,7 +59,7 @@ bool	map_check(t_g_board *g_board)
 		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
 		return (ft_error(INITIAL_MAP_ERR));
-	//debug_print_map_array(g_board->m_info->map);
+	debug_print_map_array(g_board->m_info->map);
 	if (wall_bfs_check(g_board))
 		return (true);
 	return (false);

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
 /*   Updated: 2023/11/02 22:08:40 by wchen            ###   ########.fr       */
@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 		free_all(mlx);
 		exit(EXIT_FAILURE);
 	}
-	mlx_key_hook(mlx->p_win, key_hook, mlx);
-	mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
-	mlx_loop(mlx->p_mlx);
+	draw(mlx);
+	// mlx_key_hook(mlx->p_win, key_hook, mlx);
+	// mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
+	// mlx_loop(mlx->p_mlx);
 	return (EXIT_SUCCESS);
 }
