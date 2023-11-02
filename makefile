@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
 #    Updated: 2023/11/02 21:26:10 by wchen            ###   ########.fr        #
@@ -59,7 +59,8 @@ SRC				=	ft_error.c				\
 					edge_initial.c			\
 					bfs_check.c				\
 					debug/debug_printf.c	\
-					rgb_atoi.c
+					rgb_atoi.c        \
+					start.c
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
