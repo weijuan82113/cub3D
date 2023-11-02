@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:18:45 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:07:12 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		rgb_atoi(char *rgb);
 bool	ft_error(char *err_msg);
 bool	wall_bfs_check(t_g_board *g);
 bool	edge_initial(t_graph *graph, t_g_board *g);
-bool	bfs_check(t_graph *graph, int start);
+bool	bfs_check(t_graph *graph, int start, bool result);
 //debug
 void	debug_print_map_array(char **map);
 void	print_vidited(int *visited, int size, int x);

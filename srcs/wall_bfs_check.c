@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:24:17 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:04:58 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool	wall_bfs_check(t_g_board *g)
 		free_graph(graph);
 		return (ft_error(EDGE_INITIAL_ERR));
 	}
-	if (bfs_check(graph, *g->p_position))
+	if (bfs_check(graph, *g->p_position, false))
 		return (true);
 	return (false);
 	//bebug code
