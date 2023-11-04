@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/04 12:16:32 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/04 12:34:38 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ bool	character_judge(t_g_board *g, char *line, int *x, int *y)
 
 	i = 0;
 	c_split = ft_split(CHARACTER, '/');
-	p_split = ft_split(PLAYER,- '/');
+	p_split = ft_split(PLAYER, '/');
 	result = false;
 	errno = 0;
 	while (line[i])
@@ -75,7 +75,7 @@ bool	character_judge(t_g_board *g, char *line, int *x, int *y)
 		}
 		if (is_player_character(line[i], p_split))
 		{
-			if (*y != -1 && *x != -1)
+			if (*y != -1 || *x != -1)
 			{
 				result = ft_error(PLAYER_DUPLICATION_ERR);
 				break;
