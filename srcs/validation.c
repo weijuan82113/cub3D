@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:41:10 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 22:42:34 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool	file_check(t_mlx *mlx, char *file_path)
 {
 	int	fd;
 
+	errno = 0;
 	fd = open(file_path, O_RDONLY);
 	if (fd < 0)
 		return (ft_error(OPEN_FILE_ERR));
@@ -47,6 +48,7 @@ bool	file_check(t_mlx *mlx, char *file_path)
 
 bool	validation(t_mlx *mlx, int argc, char **argv)
 {
+	errno = 0;
 	(void)argv;
 	if (argc != 2)
 		return (ft_error(ARG_ERR));

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:03:22 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 23:18:00 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <fcntl.h>
+# include <errno.h>
+# include <unistd.h>
 
 /* ************************** */
 /*         struct             */
@@ -77,6 +79,7 @@ typedef struct s_g_board
 	t_map_info				*m_info;
 	int						*p_position;
 	int						t_count;
+	char					**identifier;
 }							t_g_board;
 
 typedef struct s_mlx

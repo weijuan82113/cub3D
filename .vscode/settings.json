@@ -15,6 +15,10 @@
 		"random": "c",
 		"sstream": "c",
 		"cub3d.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"errno.h": "c",
+		"__string": "c",
+		"string": "c",
+		"*.tcc": "c"
 	}
 }

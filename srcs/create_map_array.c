@@ -6,11 +6,12 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:51:52 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 22:45:04 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <errno.h>
 
 void	fill_the_map_array(char *content, char *map, int w)
 {
@@ -56,6 +57,7 @@ bool	initial_map_array(t_g_board *g)
 
 bool	map_check(t_g_board *g_board)
 {
+	errno = 0;
 	if (wall_check(g_board->line_lst, *g_board->m_info->h))
 		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
@@ -68,6 +70,7 @@ bool	map_check(t_g_board *g_board)
 
 bool	create_map_array(t_g_board *g_board)
 {
+	errno = 0;
 	if (*g_board->m_info->h < 3 || *g_board->m_info->w < 3)
 		return (ft_error(MAP_SIZE_ERR));
 	if (map_check(g_board))

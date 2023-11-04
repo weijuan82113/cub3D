@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fd_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:09:48 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/04 00:21:05 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ bool	fd_check(t_mlx *mlx, int fd)
 	int		x;
 	int		y;
 
+	errno = 0;
 	x = -1;
 	y = -1;
 	line = NULL;
@@ -31,7 +32,7 @@ bool	fd_check(t_mlx *mlx, int fd)
 		free(line);
 	}
 	if (x == -1 || y == -1)
-		return (ft_error(PLAYER_POSITON_ERR));
+		return (ft_error(PLAYER_EMPTY_ERR));
 	*mlx->g->p_position = y * *mlx->g->m_info->w + x;
 	// debug_print_linelst(mlx->g);
 	// debug_print_imglst(mlx->g->img_lst);
