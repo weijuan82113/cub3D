@@ -6,11 +6,11 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/02 22:53:45 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/04 13:32:17 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	cub3d
+NAME			=	cub3D
 
 UNAME			=	$(shell uname)
 # CC and CFLAGS

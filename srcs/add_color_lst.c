@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 20:43:55 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 22:47:06 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ bool	check_rgb(char *str)
 
 bool	add_color_lst(t_mlx *mlx, char **split)
 {
+	errno = 0;
 	if (check_rgb(split[1]))
 		return (ft_error(COLOR_INPUT_ERR));
 	if (!mlx->g->color_lst)

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:17:42 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/04 12:25:41 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define ARG_ERR					"Error\nWrong Argument amount"
 # define FILE_EXT_ERR				"Error\nThe file extension is Wrong"
 # define OPEN_FILE_ERR				"Error\nOpen file failure"
-# define IDENTIFIER_TYPE_ERR 		"Error\nInput identifier type is Wrong"
-# define IDENTIFIER_PATH_ERR 		"Error\nInput identifier path is Wrong"
+# define IDENTIFIER_TYPE_ERR 		"Error\nThe type of identifier type is Wrong"
+# define IDENTIFIER_PATH_ERR 		"Error\nThe path of identifier path is Wrong"
 # define MALLOC_ERR 				"Error\nMalloc Error"
 # define INPUT_EMPTY_LINE_ERR 		"Error\nCan not input empty line in map"
 # define MAP_SIZE_ERR				"Error\nThe size of map is wrong"
@@ -30,7 +30,8 @@
 # define IMG_INITIAL_ERR			"Error\nError occurs in img initial"
 # define COLOR_INITIAL_ERR			"Error\nError occurs in color initial"
 # define COLOR_INPUT_ERR			"Error\nWrong color input"
-# define PLAYER_POSITON_ERR			"Error\nThere is no player in map"
+# define PLAYER_EMPTY_ERR			"Error\nThere is no player in map"
+# define PLAYER_DUPLICATION_ERR		"Error\nThere is more than one player in map"
 # define GAME_OVER					"GAME OVER!"
 
 # define IDENTIFIER "NO/SO/WE/EA/F/C"

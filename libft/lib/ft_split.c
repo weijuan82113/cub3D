@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:11:43 by wchen             #+#    #+#             */
-/*   Updated: 2023/10/29 22:22:09 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/04 00:03:00 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	len_s = ft_strlen(s);
-	judge_char = (char *)malloc(sizeof(char) * len_s + 1);
+	judge_char = (char *)malloc(sizeof(char) * (len_s + 1));
 	if (!judge_char)
 		return (NULL);
 	count = count_split_area(s, c, judge_char);

@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:37:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:03:23 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 23:48:54 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ void	g_init(t_g_board *g_board)
 	g_board->line_lst = NULL;
 	g_board->img_lst = NULL;
 	g_board->color_lst = NULL;
-	g_board->m_info = NULL;
 	g_board->p_position = NULL;
 	g_board->t_count = 0;
+	g_board->m_info -> map = NULL;
+	g_board->m_info -> h = NULL;
+	g_board->m_info -> w = NULL;
+	g_board->identifier = NULL;
 }
 
 bool	game_board_initial(t_g_board *g_board)
 {
-	g_init(g_board);
 	g_board->m_info = malloc(sizeof(t_map_info));
-	g_board->m_info -> map = NULL;
-	g_board->m_info -> h = NULL;
-	g_board->m_info -> w = NULL;
 	if (!g_board->m_info)
 		return (ft_error(MALLOC_ERR));
+	g_init(g_board);
 	g_board->m_info->h = (int *)malloc(sizeof(int));
 	if (!g_board->m_info->h)
 		return (ft_error(MALLOC_ERR));
@@ -43,6 +43,9 @@ bool	game_board_initial(t_g_board *g_board)
 	if (!g_board->p_position)
 		return (ft_error(MALLOC_ERR));
 	*g_board->p_position = 0;
+	g_board->identifier = ft_split(IDENTIFIER, '/');
+	if (!g_board->identifier)
+		return (ft_error(MALLOC_ERR));
 	return (false);
 }
 

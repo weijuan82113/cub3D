@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:22:04 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/04 23:57:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <fcntl.h>
+# include <errno.h>
+# include <unistd.h>
 
 /* ************************** */
 /*         struct             */
@@ -77,6 +79,7 @@ typedef struct s_g_board
 	t_map_info				*m_info;
 	int						*p_position;
 	int						t_count;
+	char					**identifier;
 }							t_g_board;
 
 typedef struct s_player

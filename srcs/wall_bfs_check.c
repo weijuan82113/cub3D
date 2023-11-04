@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:04:58 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 22:46:25 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ bool	wall_bfs_check(t_g_board *g)
 
 	// bool	bfs_result;
 	// bfs_result = false;
+	errno = 0;
 	graph = graph_create(*g->m_info->h * *g->m_info->w, g->m_info->map,
 			*g->m_info->w);
 	if (!graph)
