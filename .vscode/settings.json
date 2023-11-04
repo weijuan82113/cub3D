@@ -19,6 +19,8 @@
 		"errno.h": "c",
 		"__string": "c",
 		"string": "c",
-		"*.tcc": "c"
+		"*.tcc": "c",
+		"stdio.h": "c",
+		"properties.h": "c"
 	}
 }
