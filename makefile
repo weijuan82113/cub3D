@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/04 13:32:17 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/05 12:30:31 by kitsuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,8 +59,14 @@ SRC				=	ft_error.c				\
 					edge_initial.c			\
 					bfs_check.c				\
 					debug/debug_printf.c	\
-					rgb_atoi.c        \
-					start.c
+					rgb_atoi.c				\
+					draw_util/clear.c		\
+					draw_util/imageline_utils.c	\
+					draw_util/imageline.c	\
+					draw_util/init_point.c	\
+					draw_util/key_notify.c	\
+					draw_util/make_window.c	\
+					draw_util/repaint.c		\
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
