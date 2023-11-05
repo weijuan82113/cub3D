@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/04 13:32:17 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/05 19:41:41 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME			=	cub3D
 UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -MP -fsanitize=address\
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP
+# -fsanitize=address
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
