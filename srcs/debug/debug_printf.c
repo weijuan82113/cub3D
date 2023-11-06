@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:04:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:27:30 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:10:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	debug_print_colorlst(t_color_node *color_lst)
 	{
 		printf("Print Color\n");
 		printf("obj:%s\n", color_lst->obj);
-		printf("color:%s\n", color_lst->rgb);
 		printf("rgb_int:%d\n", color_lst->rgb_int);
 		color_lst = color_lst->next;
 	}
