@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 23:18:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:22:56 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 22:11:27 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	rgb_atoi(char *rgb)
 	rgb_int = 0;
 	ret_num = 0;
 	if (!rgb_split)
-		return (0);
+		return (-1);
 	while (rgb_split[i])
 	{
 		rgb_int = ft_atoi(rgb_split[i]);
-		if ((0 <= rgb_int) && (rgb_int <= 256) && i <= 2)
+		if (0 <= rgb_int && rgb_int < 256 && i <= 2)
 			ret_num += rgb_count(rgb_int, i);
 		else
 		{

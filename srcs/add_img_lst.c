@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_img_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:37:32 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:25:03 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 		return (NULL);
 	img->h = IMG_H;
 	img->w = IMG_W;
-	img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h,
-			&img->w);
+	img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h, &img->w);
 	if (!img->p_img)
 		return (NULL);
-	img->path = mlx_get_data_addr(img->p_img, &img->bpp, &img->length, &img->endian);
+	img->path = mlx_get_data_addr(img->p_img, &img->bpp, &img->length,
+			&img->endian);
 	img->next = NULL;
 	return (img);
 }
@@ -56,6 +56,7 @@ bool	ft_imglstadd_back(t_img_node **head, t_img_node *new)
 
 bool	add_img_lst(t_mlx *mlx, char **split)
 {
+	errno = 0;
 	if (!mlx->g->img_lst)
 		mlx->g->img_lst = ft_new_imglst(mlx->p_mlx, split[0], split[1]);
 	else

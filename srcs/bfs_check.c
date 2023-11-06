@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 21:28:10 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:04:18 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/03 22:44:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 bool	bfs_initial(t_bfs *bfs, t_graph *graph, int start)
 {
+	errno = 0;
 	bfs->q = ft_create_queue();
 	graph->visited[start] = 1;
 	bfs->start_vertex = malloc(sizeof(int));
@@ -39,6 +40,7 @@ bool	bfs_check(t_graph *graph, int start, bool result)
 {
 	t_bfs	bfs;
 
+	errno = 0;
 	if (bfs_initial(&bfs, graph, start))
 		return (true);
 	while (bfs.q->rear != NULL)

@@ -6,16 +6,17 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/02 22:53:45 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/06 23:15:51 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	cub3d
+NAME			=	cub3D
 
 UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -MP -fsanitize=address\
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP
+# -fsanitize=address
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
@@ -59,8 +60,10 @@ SRC				=	ft_error.c				\
 					edge_initial.c			\
 					bfs_check.c				\
 					debug/debug_printf.c	\
-					rgb_atoi.c        \
-					start.c
+					rgb_atoi.c				\
+					start.c					\
+					character_judge.c		\
+
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 

@@ -6,35 +6,41 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:38:32 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/05 10:52:00 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	incorrect_identify(char *s, char *compare)
+bool	incorrect_identify(char *s,char **id_split)
 {
 	int		i;
-	char	**identifier_array;
-	int		identifier_num;
 
-	identifier_array = ft_split(compare, '/');
-	identifier_num = 0;
-	while (identifier_array[identifier_num])
-		identifier_num++;
 	i = 0;
-	while (i < identifier_num)
+	if (ft_strncmp(s, "NA", 2) == 0)
+		return (true);
+	while (i < IDENTIFIER_NUM)
 	{
-		if (ft_strncmp(s, identifier_array[i],
-				ft_strlen(identifier_array[i])) == 0)
+		if (ft_strncmp(s, id_split[i],
+				ft_strlen(id_split[i])) == 0)
 		{
-			free_split(identifier_array);
+			id_split[i][0] = 'N';
+			id_split[i][1] = 'A';
 			return (false);
 		}
 		i++;
 	}
-	free_split(identifier_array);
 	return (true);
+}
+
+int split_num(char **split)
+{
+	int	i;
+
+	i = 0;
+	while(split[i])
+		i ++;
+	return (i);
 }
 
 bool	check_identifier(t_mlx *mlx, char *line)
@@ -42,9 +48,12 @@ bool	check_identifier(t_mlx *mlx, char *line)
 	char	**line_split;
 	bool	result;
 
+	errno = 0;
 	line_split = ft_split(line, ' ');
+	if (split_num(line_split) != 2)
+		return (ft_error(IDENTIFIER_PATH_ERR));
 	result = false;
-	if (incorrect_identify(line_split[0], IDENTIFIER))
+	if (incorrect_identify(line_split[0], mlx->g->identifier))
 	{
 		free_split(line_split);
 		return (ft_error(IDENTIFIER_TYPE_ERR));

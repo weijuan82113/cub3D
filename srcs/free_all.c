@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:06:52 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:22:42 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/04 00:05:06 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static void	free_g_board(t_g_board **g)
 	free_map(&p_g->m_info, free);
 	if (p_g->p_position)
 		free(p_g->p_position);
+	if (p_g->identifier)
+		free_split(p_g->identifier);
 	free(p_g);
 	p_g = NULL;
 }

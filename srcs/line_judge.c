@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 22:43:10 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:13:16 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,67 +26,11 @@ void	save_line_lst(t_g_board *g_board, char *line)
 		ft_lstadd_back(&g_board->line_lst, ft_lstnew(line));
 }
 
-bool	incorrect_character(char c, char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		if (c == '\n' || c == *split[i])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
-bool	is_player_character(char c, char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		if (c == *split[i])
-			return (true);
-		i++;
-	}
-	return (false);
-}
-
-bool	character_judge(t_g_board *g, char *line, int *x, int *y)
-{
-	int		i;
-	char	**c_split;
-	char	**p_split;
-
-	i = 0;
-	c_split = ft_split(CHARACTER, '/');
-	p_split = ft_split(PLAYER, '/');
-	while (line[i])
-	{
-		if (incorrect_character(line[i], c_split))
-		{
-			free_split(c_split);
-			free_split(p_split);
-			return (ft_error(CHARACTER_ERR));
-		}
-		if (is_player_character(line[i], p_split))
-		{
-			*y = *g->m_info->h;
-			*x = i;
-		}
-		i++;
-	}
-	free_split(c_split);
-	free_split(p_split);
-	return (false);
-}
-
 bool	line_judge(t_g_board *g_board, char *line, int *x, int *y)
 {
 	char	*content;
 
+	errno = 0;
 	if (*g_board->m_info->h != 0 && ft_isstrempty(line) == 1)
 		return (ft_error(INPUT_EMPTY_LINE_ERR));
 	if (ft_isstrempty(line) == 0)
