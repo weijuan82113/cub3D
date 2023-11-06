@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:48:19 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:41:43 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,5 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	draw(mlx);
-	// mlx_key_hook(mlx->p_win, key_hook, mlx);
-	// mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
-	// mlx_loop(mlx->p_mlx);
 	return (EXIT_SUCCESS);
 }

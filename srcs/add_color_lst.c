@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_color_lst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 22:25:37 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:52:32 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ bool	check_rgb(char *str)
 
 bool	add_color_lst(t_mlx *mlx, char **split)
 {
+	int	rgb;
+
 	errno = 0;
-	int rgb;
 	if (check_rgb(split[1]))
 		return (ft_error(COLOR_INPUT_ERR));
 	rgb = rgb_atoi(split[1]);

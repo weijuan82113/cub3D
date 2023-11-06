@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edge_initial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:21:09 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 23:29:49 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:50:58 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,27 @@ bool	edge_add(t_graph *graph, int src, int dest)
 	return (false);
 }
 
+static bool	cont_direction(char **map, int x, t_graph *graph, int src)
+{
+	int		dest;
+	bool	stop_flag;
+
+	stop_flag = false;
+	dest = src - x + 1;
+	if (map[dest / x][dest % x] != '1' && !stop_flag)
+		stop_flag = edge_add(graph, src, dest);
+	dest = src - x - 1;
+	if (map[dest / x][dest % x] != '1' && !stop_flag)
+		stop_flag = edge_add(graph, src, dest);
+	dest = src + x + 1;
+	if (map[dest / x][dest % x] != '1' && !stop_flag)
+		stop_flag = edge_add(graph, src, dest);
+	dest = src + x - 1;
+	if (map[dest / x][dest % x] != '1' && !stop_flag)
+		stop_flag = edge_add(graph, src, dest);
+	return (stop_flag);
+}
+
 bool	edge_add_direction(t_graph *graph, int src, t_g_board *g)
 {
 	char	**map;
@@ -41,30 +62,20 @@ bool	edge_add_direction(t_graph *graph, int src, t_g_board *g)
 	map = g->m_info->map;
 	x = *g->m_info->w;
 	stop_flag = false;
-	dest = src - x; //top
+	dest = src - x;
 	if (map[dest / x][dest % x] != '1' && !stop_flag)
 		stop_flag = edge_add(graph, src, dest);
-	dest = src + x; //bottom
+	dest = src + x;
 	if (map[dest / x][dest % x] != '1' && !stop_flag)
 		stop_flag = edge_add(graph, src, dest);
-	dest = src - 1; //left
+	dest = src - 1;
 	if (map[dest / x][dest % x] != '1' && !stop_flag)
 		stop_flag = edge_add(graph, src, dest);
-	dest = src + 1; //right
+	dest = src + 1;
 	if (map[dest / x][dest % x] != '1' && !stop_flag)
 		stop_flag = edge_add(graph, src, dest);
-	dest = src - x + 1; //top right
-	if (map[dest / x][dest % x] != '1' && !stop_flag)
-		stop_flag = edge_add(graph, src, dest);
-	dest = src - x - 1; //top left
-	if (map[dest / x][dest % x] != '1' && !stop_flag)
-		stop_flag = edge_add(graph, src, dest);
-	dest = src + x + 1; //bottom right
-	if (map[dest / x][dest % x] != '1' && !stop_flag)
-		stop_flag = edge_add(graph, src, dest);
-	dest = src + x - 1; //bottom left
-	if (map[dest / x][dest % x] != '1' && !stop_flag)
-		stop_flag = edge_add(graph, src, dest);
+	if (!stop_flag)
+		stop_flag = cont_direction(map, x, graph, src);
 	if (!stop_flag)
 		return (false);
 	return (true);

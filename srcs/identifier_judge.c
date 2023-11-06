@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   identifier_judge.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/05 10:52:00 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:42:36 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	incorrect_identify(char *s,char **id_split)
+bool	incorrect_identify(char *s, char **id_split)
 {
 	int		i;
 
@@ -33,12 +33,12 @@ bool	incorrect_identify(char *s,char **id_split)
 	return (true);
 }
 
-int split_num(char **split)
+int	split_num(char **split)
 {
 	int	i;
 
 	i = 0;
-	while(split[i])
+	while (split[i])
 		i ++;
 	return (i);
 }
@@ -58,7 +58,6 @@ bool	check_identifier(t_mlx *mlx, char *line)
 		free_split(line_split);
 		return (ft_error(IDENTIFIER_TYPE_ERR));
 	}
-	//separete color and img
 	if (ft_strlen(line_split[0]) == 2)
 		result = add_img_lst(mlx, line_split);
 	else

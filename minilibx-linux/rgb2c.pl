@@ -11,17 +11,17 @@
 
 
 #
-# Generate a .c file with encoded colors, from the XFree86 rgb.txt file.
+# Generate a .c file with encoded colors, from the XFree86 RGB.txt file.
 #
 
-open(rgb, "/usr/X11/lib/X11/rgb.txt");
+open(RGB, "/usr/X11/lib/X11/RGB.txt");
 
 
-printf("/*\n** This is a generated file with rgb2c.pl and rgb.txt from\n");
+printf("/*\n** This is a generated file with rgb2c.pl and RGB.txt from\n");
 printf("** the XFree86 distribution.\n*/\n\n");
 printf("struct s_col_name mlx_col_name[] =\n{\n");
 
-while (<rgb>)
+while (<RGB>)
 {
     @tab = split;
     if ($tab[0] ne "!")

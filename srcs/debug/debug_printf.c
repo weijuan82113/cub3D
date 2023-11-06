@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:04:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:10:02 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:39:51 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	print_graph(t_graph *graph)
 	int		v;
 	t_node	*temp;
 
-	for (v = 0; v < graph->num_vertex; v++)
+	v = 0;
+	while (v < graph->num_vertex)
 	{
 		temp = graph->adj_lsts[v];
 		printf("\n Vertex %d\n: ", v);
@@ -69,6 +70,7 @@ void	print_graph(t_graph *graph)
 			temp = temp->next;
 		}
 		printf("\n");
+		v++;
 	}
 }
 
@@ -91,18 +93,4 @@ void	print_vidited(int *visited, int size, int x)
 	}
 	printf("-------finished-------\n");
 	fflush(stdout);
-}
-
-//printf map array
-void	debug_print_map_array(char **map)
-{
-	int i;
-
-	printf("debug_print_map_array\n");
-	i = 0;
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
 }

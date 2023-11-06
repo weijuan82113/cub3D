@@ -6,7 +6,7 @@
 #    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/06 23:15:51 by wchen            ###   ########.fr        #
+#    Updated: 2023/11/06 23:41:02 by kitsuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,36 +39,37 @@ endif
 
 #cub3d
 SRC_DIR			=	./srcs
-SRC				=	ft_error.c				\
-					main.c					\
-					validation.c			\
-					fd_check.c				\
-					line_check.c			\
-					line_judge.c			\
-					create_map_array.c		\
-					identifier_judge.c		\
-					add_img_lst.c			\
-					add_color_lst.c			\
-					wall_check.c			\
-					mlx_initial.c			\
-					key_hook.c				\
-					destory_hook.c			\
-					free_all.c				\
-					free_graph.c			\
-					ft_lst_free.c			\
-					wall_bfs_check.c		\
-					edge_initial.c			\
-					bfs_check.c				\
-					debug/debug_printf.c	\
-					rgb_atoi.c				\
-					draw_util/clear.c		\
+SRC				=	ft_error.c					\
+					main.c						\
+					validation.c				\
+					fd_check.c					\
+					line_check.c				\
+					line_judge.c				\
+					create_map_array.c			\
+					identifier_judge.c			\
+					add_img_lst.c				\
+					add_color_lst.c				\
+					wall_check.c				\
+					mlx_initial.c				\
+					key_hook.c					\
+					destory_hook.c				\
+					free_all.c					\
+					free_graph.c				\
+					ft_lst_free.c				\
+					wall_bfs_check.c			\
+					edge_initial.c				\
+					bfs_check.c					\
+					rgb_atoi.c					\
+					debug/debug_printf.c		\
+					debug/cont_debug_printf.c	\
+					draw_util/clear.c			\
 					draw_util/imageline_utils.c	\
-					draw_util/imageline.c	\
-					draw_util/init_point.c	\
-					draw_util/key_notify.c	\
-					draw_util/make_window.c	\
-					draw_util/repaint.c		\
-					character_judge.c		\
+					draw_util/imageline.c		\
+					draw_util/init_point.c		\
+					draw_util/key_notify.c		\
+					draw_util/make_window.c		\
+					draw_util/repaint.c			\
+					character_judge.c			\
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
