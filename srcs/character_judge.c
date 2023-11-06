@@ -6,12 +6,11 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 23:12:24 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:14:01 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:26:22 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 bool	incorrect_character(char c, char **split)
 {
@@ -76,7 +75,7 @@ bool	check_character(t_g_board *g, t_chr *chr)
 			*chr->y = *g->m_info->h;
 			*chr->x = chr->i;
 		}
-		chr->i ++;
+		chr->i++;
 	}
 	return (chr->result);
 }
