@@ -21,6 +21,7 @@
 		"string": "c",
 		"*.tcc": "c",
 		"stdio.h": "c",
-		"properties.h": "c"
+		"properties.h": "c",
+		"functional": "c"
 	}
 }

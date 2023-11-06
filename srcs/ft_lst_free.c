@@ -6,7 +6,7 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:08:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 22:25:07 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 22:13:36 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ void	ft_colorlstdelone(t_color_node *lst, void (*del)(void *))
 	if (!lst)
 		return ;
 	else if (del)
-	{
 		del(lst->obj);
-		del(lst->rgb);
-	}
 	del(lst);
 	lst = NULL;
 }

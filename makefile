@@ -6,7 +6,7 @@
 #    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/05 12:30:31 by kitsuki          ###   ########.fr        #
+#    Updated: 2023/11/06 23:15:51 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME			=	cub3D
 UNAME			=	$(shell uname)
 # CC and CFLAGS
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -MP -fsanitize=address\
+CFLAGS			=	-Wall -Wextra -Werror -MMD -MP
+# -fsanitize=address
 
 #IFLAGS
 INCLUDES_DIR	=	./includes
@@ -67,6 +68,7 @@ SRC				=	ft_error.c				\
 					draw_util/key_notify.c	\
 					draw_util/make_window.c	\
 					draw_util/repaint.c		\
+					character_judge.c		\
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 

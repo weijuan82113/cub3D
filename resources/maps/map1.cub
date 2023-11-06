@@ -1,17 +1,12 @@
-NO         ./images/komurokei.xpm
-SO     ./images/bluestone.xpm   
-WE       ./images/colorstone.xpm
+NO         ./resources/textures/bluestone.xpm
+SO     ./resources/textures/colorstone.xpm
+WE ./resources/textures/greystone.xpm
+EA ./resources/textures/purplestone.xpm
+F    255,100,0
 
-
-EA ./images/greystone.xpm
-
-F    220,100,0
-
- 
-C                                       225,30,0
+C                                       255,30,255
 
 111111
-111111
+111101
 1111N1
 111111
-
