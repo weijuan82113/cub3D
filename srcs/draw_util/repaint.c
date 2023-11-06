@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:50:09 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:34:20 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:14:28 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ static double	get_tall(t_mlx *mlx, double degree)
 	double	tall;
 
 	tall = get_distance(mlx, set_degree(mlx->player.degree + degree));
-	if (tall != 0)
-		tall = DISTANCE / fabs(cos(degree * M_PI / 180)) / tall;
+	if (tall != 0 && cos(degree * M_PI / 180) != 0)
+		tall = WIN_X / 2 / fabs(tan(RANGE * M_PI / 180))
+			/ (fabs(cos(degree * M_PI / 180)) * tall);
 	return (tall);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:24:11 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:27:38 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:16:29 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	clear(t_mlx *mlx)
 	mlx_destroy_image(mlx->p_mlx, mlx->image);
 	mlx_destroy_window(mlx->p_mlx, mlx->p_win);
 	mlx_destroy_display(mlx->p_mlx);
+	free_all(mlx);
 	exit(0);
 	return (0);
 }

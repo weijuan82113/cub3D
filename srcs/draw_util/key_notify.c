@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:25:55 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:36:55 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:02:23 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	key_notify(int button, t_mlx *mlx)
 	if (button == ESC)
 		clear(mlx);
 	else if (button == KEY_A || button == KEY_LEFT)
-		mlx->player.degree -= 3;
+		mlx->player.degree -= MOVE_DEGREE;
 	else if (button == KEY_D || button == KEY_RIGHT)
-		mlx->player.degree += 3;
+		mlx->player.degree += MOVE_DEGREE;
 	else if (button == KEY_W || button == KEY_UP)
 	{
 		mlx->player.x += BLOCK / 10 * sin(mlx->player.degree * M_PI / 180);

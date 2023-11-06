@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:56:13 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:37:54 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 22:51:42 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 # include <math.h>
 
 # define CLIENT_MESSAGE 33
-# define KEYPRESSMASK (1L<<0)
+# define KEYPRESSMASK 1L
 # define KEYPRESS 2
 # define BLOCK 190
-# define EYE_LINE BLOCK / 2
 # define RANGE 24.0
-# define DISTANCE WIN_Y / 2 * 45 / RANGE
+# define MOVE_DEGREE 3.0
 
 typedef struct s_imgline {
 	int			x;

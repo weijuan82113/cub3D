@@ -6,13 +6,13 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:53:29 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:38:47 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:15:51 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_draw_util.h"
 
-const char	*g_array[] = {"NO", "SO", "EA", "WE"};
+static const char	*g_array[] = {"NO", "SO", "EA", "WE"};
 
 t_imgline	init_imageline(int x, t_img_node *data)
 {
@@ -32,17 +32,17 @@ static bool	get_point_and_isx(t_point *p, bool *isx, t_mlx *mlx, double degree)
 		if (mlx->g->m_info->map[p->dy][p->dx] == '1')
 			return (true);
 		*isx = fabs(tan(degree * M_PI / 180)) * p->my > p->mx;
-		if (*isx)
+		if (*isx && tan(degree * M_PI / 180) != 0)
 		{
 			p->my -= p->mx / fabs(tan(degree * M_PI / 180));
 			p->mx = BLOCK;
-			p->dx += (0 <= degree && degree <= 180) * 2 - 1;
+			p->dx += (0 <= degree && degree < 180) * 2 - 1;
 		}
 		else
 		{
 			p->mx -= fabs(tan(degree * M_PI / 180)) * p->my;
 			p->my = BLOCK;
-			p->dy += (90 <= degree && degree <= 270) * 2 - 1;
+			p->dy += (90 <= degree && degree < 270) * 2 - 1;
 		}
 	}
 	return (false);
@@ -58,12 +58,12 @@ double	get_distance(t_mlx *mlx, double degree)
 	p = init_point(mlx->player, degree);
 	if (!get_point_and_isx(&p, &flag, mlx, degree))
 		return (0);
-	if (0 <= degree && degree <= 180)
+	if (0 <= degree && degree < 180)
 		x = BLOCK - p.mx;
 	else
 		x = p.mx;
 	x = mlx->player.x - p.dx * BLOCK - x;
-	if (90 <= degree && degree <= 270)
+	if (90 <= degree && degree < 270)
 		y = BLOCK - p.my;
 	else
 		y = p.my;
