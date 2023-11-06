@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   debug_printf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:04:18 by wchen             #+#    #+#             */
 /*   Updated: 2023/11/06 23:10:02 by wchen            ###   ########.fr       */

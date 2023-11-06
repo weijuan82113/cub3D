@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
 /*   Updated: 2023/11/06 23:15:12 by wchen            ###   ########.fr       */
@@ -92,17 +92,25 @@ typedef struct s_g_board
 	char			**identifier;
 }					t_g_board;
 
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	degree;
+}			t_player;
+
 typedef struct s_mlx
 {
-	void			*p_mlx;
-	void			*p_win;
-	void			*image;
-	int				bpp;
-	int				length;
-	int				endian;
-	void			*path;
-	t_g_board		*g;
-}					t_mlx;
+	void		*p_mlx;
+	void		*p_win;
+	void		*image;
+	int			bpp;
+	int			length;
+	int			endian;
+	void		*path;
+	t_g_board	*g;
+	t_player	player;
+}				t_mlx;
 
 /* ************************** */
 /*         function           */

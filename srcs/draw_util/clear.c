@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:48:19 by kitsuki          ###   ########.fr       */
+/*   Created: 2023/11/05 12:24:11 by kitsuki           #+#    #+#             */
+/*   Updated: 2023/11/06 23:16:29 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "_draw_util.h"
 
-int	main(int argc, char **argv)
+int	clear(t_mlx *mlx)
 {
-	t_mlx	*mlx;
-
-	mlx = mlx_initial();
-	if (!mlx)
-	{
-		free_all(mlx);
-		exit(ft_error(MLX_INIT_ERR));
-	}
-	if (validation(mlx, argc, argv))
-	{
-		free_all(mlx);
-		exit(EXIT_FAILURE);
-	}
-	draw(mlx);
-	// mlx_key_hook(mlx->p_win, key_hook, mlx);
-	// mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
-	// mlx_loop(mlx->p_mlx);
-	return (EXIT_SUCCESS);
+	mlx_loop_end(mlx->p_mlx);
+	mlx_destroy_image(mlx->p_mlx, mlx->image);
+	mlx_destroy_window(mlx->p_mlx, mlx->p_win);
+	mlx_destroy_display(mlx->p_mlx);
+	free_all(mlx);
+	exit(0);
+	return (0);
 }

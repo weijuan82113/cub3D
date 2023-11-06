@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_point.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 23:48:19 by kitsuki          ###   ########.fr       */
+/*   Created: 2023/11/05 12:23:09 by kitsuki           #+#    #+#             */
+/*   Updated: 2023/11/05 12:23:26 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "_draw_util.h"
 
-int	main(int argc, char **argv)
+t_point	init_point(t_player player, double degree)
 {
-	t_mlx	*mlx;
+	t_point	p;
 
-	mlx = mlx_initial();
-	if (!mlx)
-	{
-		free_all(mlx);
-		exit(ft_error(MLX_INIT_ERR));
-	}
-	if (validation(mlx, argc, argv))
-	{
-		free_all(mlx);
-		exit(EXIT_FAILURE);
-	}
-	draw(mlx);
-	// mlx_key_hook(mlx->p_win, key_hook, mlx);
-	// mlx_hook(mlx->p_win, 17, 1L << 17, destroy_hook, mlx);
-	// mlx_loop(mlx->p_mlx);
-	return (EXIT_SUCCESS);
+	p.dx = player.x / BLOCK;
+	p.dy = player.y / BLOCK;
+	p.mx = (int)player.x % BLOCK;
+	p.my = (int)player.y % BLOCK;
+	if (0 <= degree && degree < 180)
+		p.mx = BLOCK - p.mx;
+	if (90 <= degree && degree < 270)
+		p.my = BLOCK - p.my;
+	return (p);
 }

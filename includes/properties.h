@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   properties.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/04 12:25:41 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/06 23:02:20 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define IMG_H	64
 # define IMG_W	64
 
-# define WIN_X	1024
+# define WIN_X	1500
 # define WIN_Y	1024
 
 //KEYBOARD
