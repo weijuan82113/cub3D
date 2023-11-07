@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:21:09 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:50:58 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/08 00:01:51 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ bool	edge_add(t_graph *graph, int src, int dest)
 	*content = dest;
 	new_node = ft_lstnew(content);
 	if (!new_node)
+	{
+		free(content);
 		return (true);
+	}
 	if (graph->adj_lsts[src] == NULL)
 		graph->adj_lsts[src] = new_node;
 	else

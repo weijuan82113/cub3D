@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:37:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:24:46 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:18:06 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,24 @@ bool	game_board_initial(t_g_board *g_board)
 	return (false);
 }
 
-t_mlx	*mlx_initial(void)
+bool	mlx_initial(t_mlx **dst)
 {
 	t_mlx	*mlx;
 
 	mlx = malloc(sizeof(t_mlx));
+	*dst = mlx;
 	if (!mlx)
-		return (NULL);
+		return (true);
 	mlx->p_mlx = mlx_init();
 	if (!mlx->p_mlx)
-		return (NULL);
+		return (true);
 	mlx->p_win = mlx_new_window(mlx->p_mlx, WIN_X, WIN_Y, "Cub3D");
 	if (!mlx->p_win)
-		return (NULL);
+		return (true);
 	mlx->g = malloc(sizeof(t_g_board));
 	if (!mlx->g)
-		return (NULL);
+		return (true);
 	if (game_board_initial(mlx->g))
-		return (NULL);
-	return (mlx);
+		return (true);
+	return (false);
 }

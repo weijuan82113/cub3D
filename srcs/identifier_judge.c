@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:42:36 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:50:51 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 bool	incorrect_identify(char *s, char **id_split)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	if (ft_strncmp(s, "NA", 2) == 0)
+	if (ft_strncmp(s, "N", 2) == 0 || ft_strncmp(s, "NA", 2) == 0)
 		return (true);
 	while (i < IDENTIFIER_NUM)
 	{
 		if (ft_strncmp(s, id_split[i],
-				ft_strlen(id_split[i])) == 0)
+				ft_strlen(id_split[i]) + 1) == 0)
 		{
 			id_split[i][0] = 'N';
-			id_split[i][1] = 'A';
+			if (ft_strlen(id_split[i]) != 1)
+				id_split[i][1] = 'A';
 			return (false);
 		}
 		i++;
@@ -51,7 +52,10 @@ bool	check_identifier(t_mlx *mlx, char *line)
 	errno = 0;
 	line_split = ft_split(line, ' ');
 	if (split_num(line_split) != 2)
+	{
+		free_split(line_split);
 		return (ft_error(IDENTIFIER_PATH_ERR));
+	}
 	result = false;
 	if (incorrect_identify(line_split[0], mlx->g->identifier))
 	{

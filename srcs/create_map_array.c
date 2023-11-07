@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/04 23:57:09 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:57:16 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ bool	map_check(t_g_board *g_board)
 		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
 		return (ft_error(INITIAL_MAP_ERR));
-	debug_print_map_array(g_board->m_info->map);
 	if (wall_bfs_check(g_board))
 		return (true);
 	return (false);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   character_judge.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 23:12:24 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:26:22 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/07 22:15:22 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ t_chr	*character_judge_inital(char *line, int *x, int *y)
 	errno = 0;
 	chr->c_split = ft_split(CHARACTER, '/');
 	chr->p_split = ft_split(PLAYER, '/');
-	chr->result = false;
-	chr->i = 0;
 	chr->line = line;
 	chr->x = x;
 	chr->y = y;
@@ -58,26 +56,31 @@ t_chr	*character_judge_inital(char *line, int *x, int *y)
 
 bool	check_character(t_g_board *g, t_chr *chr)
 {
-	while (chr->line[chr->i])
+	int		i;
+	bool	result;
+
+	i = 0;
+	result = false;
+	while (chr->line[i])
 	{
-		if (incorrect_character(chr->line[chr->i], chr->c_split))
+		if (incorrect_character(chr->line[i], chr->c_split))
 		{
-			chr->result = ft_error(CHARACTER_ERR);
+			result = ft_error(CHARACTER_ERR);
 			break ;
 		}
-		if (is_player_character(chr->line[chr->i], chr->p_split))
+		if (is_player_character(chr->line[i], chr->p_split))
 		{
 			if (*chr->y != -1 || *chr->x != -1)
 			{
-				chr->result = ft_error(PLAYER_DUPLICATION_ERR);
+				result = ft_error(PLAYER_DUPLICATION_ERR);
 				break ;
 			}
 			*chr->y = *g->m_info->h;
-			*chr->x = chr->i;
+			*chr->x = i;
 		}
-		chr->i++;
+		i++;
 	}
-	return (chr->result);
+	return (result);
 }
 
 bool	character_judge(t_g_board *g, char *line, int *x, int *y)

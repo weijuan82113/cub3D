@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:45:02 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:28:00 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ bool	fd_check(t_mlx *mlx, int fd)
 	char	*line;
 	int		x;
 	int		y;
+	bool	check;
 
 	errno = 0;
 	x = -1;
 	y = -1;
 	line = NULL;
-	while (1)
+	while (true)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if (line_check(line, mlx, &x, &y))
-			return (true);
+		check = line_check(line, mlx, &x, &y);
 		free(line);
+		if (check)
+			return (true);
 	}
 	if (x == -1 || y == -1)
 		return (ft_error(PLAYER_EMPTY_ERR));

@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:49 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:41:43 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/07 23:18:39 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_mlx	*mlx;
 
-	mlx = mlx_initial();
-	if (!mlx)
+	if (mlx_initial(&mlx))
 	{
 		free_all(mlx);
 		exit(ft_error(MLX_INIT_ERR));

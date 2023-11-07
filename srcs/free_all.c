@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:06:52 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/04 00:05:06 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/07 23:14:04 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	free_map(t_map_info **m_info, void (*del)(void *))
 	if (!p_m_info)
 		return ;
 	i = 0;
-	while (i < *p_m_info->h && p_m_info->map)
+	while (p_m_info->h && i < *p_m_info->h && p_m_info->map)
 	{
 		del(p_m_info->map[i]);
 		i ++;
@@ -51,23 +51,25 @@ static void	free_g_board(t_g_board **g)
 	if (p_g->identifier)
 		free_split(p_g->identifier);
 	free(p_g);
-	p_g = NULL;
+	*g = NULL;
 }
 
 void	free_all(t_mlx *mlx)
 {
-	mlx_clear_window(mlx->p_mlx, mlx->p_win);
-	mlx_destroy_window(mlx->p_mlx, mlx->p_win);
-	mlx_destroy_display(mlx->p_mlx);
+	if (!mlx)
+		return ;
 	if (mlx->p_mlx)
 	{
-		free(mlx->p_mlx);
-		mlx->p_mlx = NULL;
+		if (mlx->p_win)
+		{
+			if (mlx->g)
+				free_g_board(&mlx->g);
+			mlx_clear_window(mlx->p_mlx, mlx->p_win);
+			mlx_destroy_window(mlx->p_mlx, mlx->p_win);
+		}
+		mlx_destroy_display(mlx->p_mlx);
 	}
-	if (mlx->g)
-		free_g_board(&mlx->g);
 	free(mlx);
-	mlx = NULL;
 }
 
 void	free_split(char **split)

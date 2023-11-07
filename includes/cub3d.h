@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:15:12 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/07 23:17:28 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,10 @@ typedef struct s_chr
 {
 	char	**c_split;
 	char	**p_split;
-	bool	result;
-	int		i;
 	char	*line;
 	int		*x;
 	int		*y;
 }			t_chr;
-
-typedef struct s_bfs
-{
-	t_queue			*q;
-	int				*start_vertex;
-	int				current_vertex;
-	t_node			*temp;
-	int				*adj_vertex;
-}					t_bfs;
 
 typedef struct s_graph
 {
@@ -118,7 +107,7 @@ typedef struct s_mlx
 
 void				draw(t_mlx *mlx);
 void				test(void);
-t_mlx				*mlx_initial(void);
+bool				mlx_initial(t_mlx **dst);
 bool				validation(t_mlx *mlx, int argc, char **argv);
 bool				fd_check(t_mlx *mlx, int fd);
 bool				line_check(char *line, t_mlx *mlx, int *x, int *y);

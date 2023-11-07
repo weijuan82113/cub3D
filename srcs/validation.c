@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/03 22:42:34 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/07 23:24:47 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,23 @@ bool	extension_check(char *file_name)
 	ext = ft_strrchr(file_name, '.');
 	if (ext == NULL)
 		return (true);
-	while (*ext != '\0' && *ber != '\0')
-	{
-		if (*(ext) != *ber)
-			return (true);
-		ext++;
-		ber++;
-	}
-	if (*ext != '\0' || *ber != '\0')
+	if (ft_strncmp(ext, ber, 5) != 0)
 		return (true);
 	return (false);
 }
 
 bool	file_check(t_mlx *mlx, char *file_path)
 {
-	int	fd;
+	int		fd;
+	bool	check;
 
 	errno = 0;
 	fd = open(file_path, O_RDONLY);
 	if (fd < 0)
 		return (ft_error(OPEN_FILE_ERR));
-	if (fd_check(mlx, fd))
+	check = fd_check(mlx, fd);
+	close(fd);
+	if (check)
 		return (true);
 	return (false);
 }
@@ -49,7 +45,6 @@ bool	file_check(t_mlx *mlx, char *file_path)
 bool	validation(t_mlx *mlx, int argc, char **argv)
 {
 	errno = 0;
-	(void)argv;
 	if (argc != 2)
 		return (ft_error(ARG_ERR));
 	if (extension_check(argv[1]))

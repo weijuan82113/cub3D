@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:41:36 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/08 00:00:56 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ t_graph	*graph_malloc(int vertex_count)
 	graph->num_vertex = vertex_count;
 	graph->adj_lsts = malloc(sizeof(t_node *) * vertex_count);
 	if (!graph->adj_lsts)
+	{
+		free(graph);
 		return (NULL);
+	}
 	graph->visited = malloc(sizeof(int) * vertex_count);
 	if (!graph->visited)
+	{
+		free(graph->adj_lsts);
+		free(graph);
 		return (NULL);
+	}
 	return (graph);
 }
 
@@ -60,10 +67,7 @@ bool	wall_bfs_check(t_g_board *g)
 	graph = graph_create(*g->m_info->h * *g->m_info->w, g->m_info->map,
 			*g->m_info->w);
 	if (!graph)
-	{
-		free_graph(graph);
 		return (ft_error(GRAPH_INITIAL_ERR));
-	}
 	if (edge_initial(graph, g))
 	{
 		free_graph(graph);
