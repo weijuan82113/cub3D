@@ -2,7 +2,7 @@ NO ./resources/textures/bluestone.xpm
 SO ./resources/textures/colorstone.xpm
 WE ./resources/textures/greystone.xpm
 EA ./resources/textures/purplestone.xpm
-F 55,55,55
+F 120,120,120
 C 120,120,120
 
 111111111111

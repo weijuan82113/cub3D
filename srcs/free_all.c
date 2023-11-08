@@ -35,6 +35,22 @@ static void	free_map(t_map_info **m_info, void (*del)(void *))
 	p_m_info = NULL;
 }
 
+static void	free_identifer(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return ;
+	while (i < IDENTIFIER_NUM)
+	{
+		if (split[i])
+			free(split[i]);
+		i ++;
+	}
+	free(split);
+}
+
 static void	free_g_board(t_g_board **g)
 {
 	t_g_board	*p_g;
@@ -49,7 +65,7 @@ static void	free_g_board(t_g_board **g)
 	if (p_g->p_position)
 		free(p_g->p_position);
 	if (p_g->identifier)
-		free_split(p_g->identifier);
+		free_identifer(p_g->identifier);
 	free(p_g);
 	*g = NULL;
 }

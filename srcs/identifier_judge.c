@@ -17,16 +17,13 @@ bool	incorrect_identify(char *s, char **id_split)
 	int	i;
 
 	i = 0;
-	if (ft_strncmp(s, "N", 2) == 0 || ft_strncmp(s, "NA", 2) == 0)
-		return (true);
 	while (i < IDENTIFIER_NUM)
 	{
-		if (ft_strncmp(s, id_split[i],
+		if (id_split[i] && ft_strncmp(s, id_split[i],
 				ft_strlen(id_split[i]) + 1) == 0)
 		{
-			id_split[i][0] = 'N';
-			if (ft_strlen(id_split[i]) != 1)
-				id_split[i][1] = 'A';
+			free (id_split[i]);
+			id_split[i] = NULL;
 			return (false);
 		}
 		i++;
