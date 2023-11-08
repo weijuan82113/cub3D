@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:02:20 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/08 21:22:45 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@
 # define IMG_H	64
 # define IMG_W	64
 
-# define WIN_X	1500
-# define WIN_Y	1024
+# define WIN_X	1024
+# define WIN_Y	768
 
 //KEYBOARD
 # define KEY_UP						0xff52
