@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 00:15:06 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/25 22:25:17 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/09 23:56:22 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *c)
+size_t	ft_strlen_gnl(const char *c)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *c)
 	return (i);
 }
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr_gnl(const void *s, int c, size_t n)
 {
 	size_t					i;
 	const unsigned char		*p_dest = (unsigned char *)s;
@@ -39,7 +39,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*r_chr;
 	char	*p_chr;
@@ -49,8 +49,8 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
+	len_s1 = ft_strlen_gnl(s1);
+	len_s2 = ft_strlen_gnl(s2);
 	r_chr = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!r_chr)
 		return (NULL);

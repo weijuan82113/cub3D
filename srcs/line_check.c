@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:44:38 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/04 12:34:41 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/09 23:03:12 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ bool	line_check(char *line, t_mlx *mlx, int *x, int *y)
 	if (mlx->g->t_count < IDENTIFIER_NUM && ft_isstrempty(line) == 0)
 		return (identifier_judge(mlx, line));
 	else if (mlx->g->t_count == IDENTIFIER_NUM)
-		return (line_judge(mlx->g, line, x, y));
+	{
+		bool f = line_judge(mlx->g, line, x, y);
+		return (f);
+	}
 	return (false);
 }

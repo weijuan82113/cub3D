@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:27:19 by wchen             #+#    #+#             */
-/*   Updated: 2023/09/25 23:00:33 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/09 23:56:33 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	save(char **line, char *find_return)
 
 	tmp = *line;
 	if (*(find_return + 1) != '\0')
-		*line = ft_strjoin("\0", find_return + 1);
+		*line = ft_strjoin_gnl("\0", find_return + 1);
 	else
 		*line = "\0";
 	free (tmp);
@@ -60,7 +60,7 @@ static char	*return_line(char **line)
 
 	if (**line != '\0')
 	{
-		ret_chr = ft_strjoin(*line, "\0");
+		ret_chr = ft_strjoin_gnl(*line, "\0");
 		*line = "\0";
 		return (ret_chr);
 	}
@@ -76,7 +76,7 @@ char	*get_next_line(int fd)
 
 	if (!line[fd])
 		line[fd] = "\0";
-	find_return = ft_memchr(line[fd], '\n', ft_strlen(line[fd]));
+	find_return = ft_memchr_gnl(line[fd], '\n', ft_strlen_gnl(line[fd]));
 	if (find_return)
 		return (return_save(&line[fd], find_return));
 	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 		return (return_line(&line[fd]));
 	}
 	buf[read_byte] = '\0';
-	line[fd] = ft_strjoin(line[fd], buf);
+	line[fd] = ft_strjoin_gnl(line[fd], buf);
 	free (buf);
 	return (get_next_line(fd));
 }

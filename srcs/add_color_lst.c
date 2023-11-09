@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:52:32 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/09 22:39:32 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ t_color_node	*ft_new_colorlst(char *obj, int rgb)
 		return (NULL);
 	color->obj = ft_cut_tr(obj);
 	if (!color->obj)
+	{
+		free(color);
 		return (NULL);
+	}
 	color->rgb_int = rgb;
 	color->next = NULL;
 	return (color);

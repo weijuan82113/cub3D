@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/07 23:24:47 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/09 23:58:56 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool	file_check(t_mlx *mlx, char *file_path)
 		return (ft_error(OPEN_FILE_ERR));
 	check = fd_check(mlx, fd);
 	close(fd);
+	system("leaks cub3D");
 	if (check)
 		return (true);
 	return (false);

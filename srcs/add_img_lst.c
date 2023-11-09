@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   add_img_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:25:03 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/09 22:43:01 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// leakしそう
 t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 {
 	t_img_node	*img;
