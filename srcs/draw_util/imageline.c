@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:53:29 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/06 23:15:51 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/11 22:58:46 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_imgline	get_image_color(t_mlx *mlx, bool flag, t_point p, double degree)
 	if ((flag && 90 <= degree && degree < 270)
 		|| (!flag && 0 <= degree && degree < 180))
 		x = BLOCK - x;
-	index = flag * 2 + ((flag && 180 <= degree && degree < 360)
+	index = flag * 2 + !((flag && 180 <= degree && degree < 360)
 			|| (!flag && 90 <= degree && degree < 270));
 	image = mlx->g->img_lst;
 	while (image != NULL)
