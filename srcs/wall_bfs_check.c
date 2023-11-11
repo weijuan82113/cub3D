@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/08 00:00:56 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/11 21:52:43 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ bool	wall_bfs_check(t_g_board *g)
 		return (ft_error(EDGE_INITIAL_ERR));
 	}
 	if (bfs_check(graph, *g->p_position, false))
+	{
+		free_graph(graph);
 		return (true);
+	}
+	free_graph(graph);
 	return (false);
 }
