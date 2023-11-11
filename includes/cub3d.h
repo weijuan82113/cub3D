@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/07 23:17:28 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/11 22:19:36 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void				free_all(t_mlx *mlx);
 void				free_split(char **split);
 void				free_graph(t_graph *graph);
 void				ft_colorlstclear(t_color_node **lst, void (*del)(void *));
-void				ft_imglstclear(t_img_node **lst, void (*del)(void *));
+void				ft_imglstclear(t_img_node **lst, void *p_mlx);
 int					rgb_atoi(char *rgb);
 bool				wall_bfs_check(t_g_board *g);
 bool				edge_initial(t_graph *graph, t_g_board *g);

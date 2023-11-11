@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:08:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 22:13:36 by wchen            ###   ########.fr       */
+/*   Updated: 2023/11/11 22:38:45 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_imglstdelone(t_img_node *lst, void (*del)(void *))
+static void	ft_imglstdelone(t_img_node *lst, void *p_mlx)
 {
 	if (!lst)
 		return ;
-	else if (del)
-	{
-		del(lst->obj);
-		del(lst->img_path);
-		del(lst->p_img);
-	}
-	del(lst);
-	lst = NULL;
+	if (p_mlx)
+		mlx_destroy_image(p_mlx, lst->p_img);
+	free(lst->obj);
+	free(lst->img_path);
+	free(lst);
 }
 
-void	ft_imglstclear(t_img_node **lst, void (*del)(void *))
+void	ft_imglstclear(t_img_node **lst, void *p_mlx)
 {
 	t_img_node	*temp;
 	t_img_node	*p_lst;
@@ -37,12 +34,13 @@ void	ft_imglstclear(t_img_node **lst, void (*del)(void *))
 	while (p_lst)
 	{
 		temp = p_lst->next;
-		ft_imglstdelone(p_lst, del);
+		ft_imglstdelone(p_lst, p_mlx);
 		p_lst = temp;
 	}
+	*lst = NULL;
 }
 
-void	ft_colorlstdelone(t_color_node *lst, void (*del)(void *))
+static void	ft_colorlstdelone(t_color_node *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
