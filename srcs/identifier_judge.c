@@ -6,13 +6,13 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/07 23:50:51 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 22:51:58 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	incorrect_identify(char *s, char **id_split)
+static bool	incorrect_identify(char *s, char **id_split)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ bool	incorrect_identify(char *s, char **id_split)
 	return (true);
 }
 
-int	split_num(char **split)
+static int	split_num(char **split)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ int	split_num(char **split)
 	return (i);
 }
 
-bool	check_identifier(t_mlx *mlx, char *line)
+static bool	check_identifier(t_mlx *mlx, char *line)
 {
 	char	**line_split;
 	bool	result;

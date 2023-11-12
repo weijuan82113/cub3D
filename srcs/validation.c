@@ -6,13 +6,13 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 22:06:25 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/11 22:50:55 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:56:02 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	extension_check(char *file_name)
+static bool	extension_check(char *file_name)
 {
 	char	*ext;
 	char	*ber;
@@ -26,7 +26,7 @@ bool	extension_check(char *file_name)
 	return (false);
 }
 
-bool	file_check(t_mlx *mlx, char *file_path)
+static bool	file_check(t_mlx *mlx, char *file_path)
 {
 	int		fd;
 	bool	check;
