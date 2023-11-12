@@ -6,13 +6,13 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:30:43 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/05 12:35:39 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 20:46:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_draw_util.h"
 
-double	set_degree(double degree)
+double	get_fixed_degree(double degree)
 {
 	while (degree < 0)
 		degree += 360;

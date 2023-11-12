@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:56:13 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/06 22:51:42 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 20:46:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 # define CLIENT_MESSAGE 33
 # define KEYPRESSMASK 1L
 # define KEYPRESS 2
-# define BLOCK 190
+# define BLOCK 200
 # define RANGE 24.0
-# define MOVE_DEGREE 3.0
+# define MOVE_PER_BLOCK 6
+# define MOVE_DEGREE 9.0
 
 typedef struct s_imgline {
 	int			x;
@@ -46,6 +47,6 @@ void		set_background(t_mlx *mlx, int x);
 int			clear(t_mlx *mlx);
 int			repaint(t_mlx *mlx);
 int			key_notify(int button, t_mlx *mlx);
-double		set_degree(double degree);
+double		get_fixed_degree(double degree);
 
 #endif

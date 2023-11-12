@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:25:55 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/06 23:02:23 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 20:46:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,38 @@ static void	fix_collision(char **map, t_player *p, double mx, double my)
 	}
 }
 
+static void	change_degree(int button, t_player *player)
+{
+	if (button == KEY_LEFT)
+		player->degree -= MOVE_DEGREE;
+	else if (button == KEY_RIGHT)
+		player->degree += MOVE_DEGREE;
+}
+
+static void	move_position(int button, t_player *player)
+{
+	if (button == KEY_W || button == KEY_UP)
+	{
+		player->x += BLOCK / MOVE_PER_BLOCK * sin(player->degree * M_PI / 180);
+		player->y -= BLOCK / MOVE_PER_BLOCK * cos(player->degree * M_PI / 180);
+	}
+	else if (button == KEY_S || button == KEY_DOWN)
+	{
+		player->x -= BLOCK / MOVE_PER_BLOCK * sin(player->degree * M_PI / 180);
+		player->y += BLOCK / MOVE_PER_BLOCK * cos(player->degree * M_PI / 180);
+	}
+	else if (button == KEY_A)
+	{
+		player->x -= BLOCK / MOVE_PER_BLOCK * cos(player->degree * M_PI / 180);
+		player->y -= BLOCK / MOVE_PER_BLOCK * sin(player->degree * M_PI / 180);
+	}
+	else if (button == KEY_D)
+	{
+		player->x += BLOCK / MOVE_PER_BLOCK * cos(player->degree * M_PI / 180);
+		player->y += BLOCK / MOVE_PER_BLOCK * sin(player->degree * M_PI / 180);
+	}
+}
+
 int	key_notify(int button, t_mlx *mlx)
 {
 	double	mx;
@@ -38,22 +70,10 @@ int	key_notify(int button, t_mlx *mlx)
 	my = mlx->player.y;
 	if (button == ESC)
 		clear(mlx);
-	else if (button == KEY_A || button == KEY_LEFT)
-		mlx->player.degree -= MOVE_DEGREE;
-	else if (button == KEY_D || button == KEY_RIGHT)
-		mlx->player.degree += MOVE_DEGREE;
-	else if (button == KEY_W || button == KEY_UP)
-	{
-		mlx->player.x += BLOCK / 10 * sin(mlx->player.degree * M_PI / 180);
-		mlx->player.y -= BLOCK / 10 * cos(mlx->player.degree * M_PI / 180);
-	}
-	else if (button == KEY_S || button == KEY_DOWN)
-	{
-		mlx->player.x -= BLOCK / 10 * sin(mlx->player.degree * M_PI / 180);
-		mlx->player.y += BLOCK / 10 * cos(mlx->player.degree * M_PI / 180);
-	}
+	change_degree(button, &mlx->player);
+	move_position(button, &mlx->player);
 	fix_collision(mlx->g->m_info->map, &mlx->player, mx, my);
-	mlx->player.degree = set_degree(mlx->player.degree);
+	mlx->player.degree = get_fixed_degree(mlx->player.degree);
 	repaint(mlx);
 	return (0);
 }
