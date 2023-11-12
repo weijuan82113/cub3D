@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 00:15:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/09 23:54:33 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 22:35:01 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 size_t	ft_strlen_gnl(const char *c);
 void	*ft_memchr_gnl(const void *s, int c, size_t n);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strjoin_and_free_s1(char *s1, char *s2);
 char	*get_next_line(int fd);
 
 #endif

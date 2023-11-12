@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:27:19 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/09 23:56:33 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 22:48:31 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	save(char **line, char *find_return)
 
 	tmp = *line;
 	if (*(find_return + 1) != '\0')
-		*line = ft_strjoin_gnl("\0", find_return + 1);
+		*line = ft_strdup_gnl(find_return + 1);
 	else
-		*line = "\0";
-	free (tmp);
+		*line = NULL;
+	free(tmp);
 }
 
 static char	*return_save(char **line, char *find_return)
@@ -30,12 +30,15 @@ static char	*return_save(char **line, char *find_return)
 	size_t	ret_length;
 	size_t	i;
 
-	ret_length = 0;
-	while ((*line)[ret_length] != '\n')
-		ret_length ++;
+	ret_length = (size_t)find_return - (size_t)(*line) + 2;
 	ret_chr = (char *)malloc(sizeof(char) * (ret_length + 2));
 	if (!ret_chr)
+	{
+		if (*line)
+			free(*line);
+		*line = NULL;
 		return (NULL);
+	}
 	i = 0;
 	while ((*line)[i] != '\n')
 	{
@@ -48,20 +51,14 @@ static char	*return_save(char **line, char *find_return)
 	return (ret_chr);
 }
 
-static char	*free_buf(char *buf)
-{
-	free (buf);
-	return (NULL);
-}
-
 static char	*return_line(char **line)
 {
 	char	*ret_chr;
 
-	if (**line != '\0')
+	if (*line && **line != '\0')
 	{
-		ret_chr = ft_strjoin_gnl(*line, "\0");
-		*line = "\0";
+		ret_chr = *line;
+		*line = NULL;
 		return (ret_chr);
 	}
 	return (NULL);
@@ -74,25 +71,23 @@ char	*get_next_line(int fd)
 	char			*find_return;
 	static char		*line[1024];
 
-	if (!line[fd])
-		line[fd] = "\0";
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
+		return (NULL);
 	find_return = ft_memchr_gnl(line[fd], '\n', ft_strlen_gnl(line[fd]));
 	if (find_return)
 		return (return_save(&line[fd], find_return));
 	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	if (fd < 0 || fd > 256 || BUFFER_SIZE < 0 || BUFFER_SIZE > INT_MAX)
-		return (free_buf(buf));
 	read_byte = read(fd, buf, BUFFER_SIZE);
-	if (!read_byte || read_byte < 0)
+	if (read_byte <= 0)
 	{
 		free (buf);
 		return (return_line(&line[fd]));
 	}
 	buf[read_byte] = '\0';
-	line[fd] = ft_strjoin_gnl(line[fd], buf);
-	free (buf);
+	line[fd] = ft_strjoin_and_free_s1(line[fd], buf);
+	free(buf);
 	return (get_next_line(fd));
 }
 
