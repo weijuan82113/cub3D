@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:04:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 23:39:51 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:14:30 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	debug_print_linelst(t_g_board *g_board)
 		printf("%s\n", (char *)temp_line->content);
 		temp_line = temp_line->next;
 	}
-	printf("w:%d\n", *g_board->m_info->w);
-	printf("h:%d\n", *g_board->m_info->h);
-	printf("position:%d\n", *g_board->p_position);
+	printf("w:%d\n", g_board->m_info->w);
+	printf("h:%d\n", g_board->m_info->h);
+	printf("position:%d\n", g_board->p_position);
 }
 
 //Print the graph

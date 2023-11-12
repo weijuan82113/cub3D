@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/09 23:01:10 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:12:04 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	save_line_lst(t_g_board *g_board, char *line)
 
 	str_len = 0;
 	str_len = ft_strlen_ntr(line);
-	if (str_len > *g_board->m_info->w)
-		*g_board->m_info->w = str_len;
+	if (str_len > g_board->m_info->w)
+		g_board->m_info->w = str_len;
 	if (!g_board->line_lst)
 		g_board->line_lst = ft_lstnew(line);
 	else
@@ -31,7 +31,7 @@ bool	line_judge(t_g_board *g_board, char *line, int *x, int *y)
 	char	*content;
 
 	errno = 0;
-	if (*g_board->m_info->h != 0 && ft_isstrempty(line) == 1)
+	if (g_board->m_info->h != 0 && ft_isstrempty(line) == 1)
 		return (ft_error(INPUT_EMPTY_LINE_ERR));
 	if (ft_isstrempty(line) == 0)
 	{
@@ -42,7 +42,7 @@ bool	line_judge(t_g_board *g_board, char *line, int *x, int *y)
 			return (ft_error(MALLOC_ERR));
 		ft_memcpy(content, line, ft_strlen(line));
 		save_line_lst(g_board, content);
-		*g_board->m_info->h = *g_board->m_info->h + 1;
+		g_board->m_info->h += 1;
 	}
 	return (false);
 }

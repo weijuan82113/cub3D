@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/11 21:52:43 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:17:30 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ bool	wall_bfs_check(t_g_board *g)
 	t_graph	*graph;
 
 	errno = 0;
-	graph = graph_create(*g->m_info->h * *g->m_info->w, g->m_info->map,
-			*g->m_info->w);
+	graph = graph_create(g->m_info->h * g->m_info->w, g->m_info->map,
+			g->m_info->w);
 	if (!graph)
 		return (ft_error(GRAPH_INITIAL_ERR));
 	if (edge_initial(graph, g))
@@ -73,7 +73,7 @@ bool	wall_bfs_check(t_g_board *g)
 		free_graph(graph);
 		return (ft_error(EDGE_INITIAL_ERR));
 	}
-	if (bfs_check(graph, *g->p_position, false))
+	if (bfs_check(graph, g->p_position, false))
 	{
 		free_graph(graph);
 		return (true);

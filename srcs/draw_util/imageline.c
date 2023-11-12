@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:53:29 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/11 22:58:46 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:10:29 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_imgline	init_imageline(int x, t_img_node *data)
 static bool	get_point_and_isx(t_point *p, bool *isx, t_mlx *mlx, double degree)
 {
 	*isx = true;
-	while ((0 <= p->dy && p->dy < *mlx->g->m_info->h)
-		&& (0 <= p->dx && p->dx < *mlx->g->m_info->w))
+	while ((0 <= p->dy && p->dy < mlx->g->m_info->h)
+		&& (0 <= p->dx && p->dx < mlx->g->m_info->w))
 	{
 		if (mlx->g->m_info->map[p->dy][p->dx] == '1')
 			return (true);

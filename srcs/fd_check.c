@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:42:47 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/09 23:56:55 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:15:17 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	fd_check(t_mlx *mlx, int fd)
 	}
 	if (x == -1 || y == -1)
 		return (ft_error(PLAYER_EMPTY_ERR));
-	*mlx->g->p_position = y * *mlx->g->m_info->w + x;
+	mlx->g->p_position = y * mlx->g->m_info->w + x;
 	if (create_map_array(mlx->g))
 		return (true);
 	return (false);

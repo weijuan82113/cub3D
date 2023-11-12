@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:30:43 by kitsuki           #+#    #+#             */
-/*   Updated: 2023/11/12 20:46:41 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:15:00 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static int	get_direction(t_g_board *g)
 	int	p;
 	int	w;
 
-	p = *g->p_position;
-	w = *g->m_info->w;
+	p = g->p_position;
+	w = g->m_info->w;
 	if (g->m_info->map[p / w][p % w] == 'N')
 		return (0);
 	else if (g->m_info->map[p / w][p % w] == 'E')
@@ -39,8 +39,8 @@ static int	get_direction(t_g_board *g)
 
 void	draw(t_mlx *m)
 {
-	m->player.x = (*(m->g->p_position) % *(m->g->m_info->w) + 0.5) * BLOCK;
-	m->player.y = (*(m->g->p_position) / *(m->g->m_info->w) + 0.5) * BLOCK;
+	m->player.x = (m->g->p_position % m->g->m_info->w + 0.5) * BLOCK;
+	m->player.y = (m->g->p_position / m->g->m_info->w + 0.5) * BLOCK;
 	m->player.degree = get_direction(m->g);
 	m->image = mlx_new_image(m->p_mlx, WIN_X, WIN_Y);
 	m->path = mlx_get_data_addr(m->image, &m->bpp, &m->length, &m->endian);

@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 23:12:24 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/07 22:15:22 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:09:35 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool	check_character(t_g_board *g, t_chr *chr)
 				result = ft_error(PLAYER_DUPLICATION_ERR);
 				break ;
 			}
-			*chr->y = *g->m_info->h;
+			*chr->y = g->m_info->h;
 			*chr->x = i;
 		}
 		i++;

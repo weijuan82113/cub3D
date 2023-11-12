@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/11 22:19:36 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:14:17 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ typedef struct s_color
 typedef struct s_map_info
 {
 	char			**map;
-	int				*h;
-	int				*w;
+	int				h;
+	int				w;
 }					t_map_info;
 
 typedef struct s_g_board
@@ -76,7 +76,7 @@ typedef struct s_g_board
 	t_img_node		*img_lst;
 	t_color_node	*color_lst;
 	t_map_info		*m_info;
-	int				*p_position;
+	int				p_position;
 	int				t_count;
 	char			**identifier;
 }					t_g_board;

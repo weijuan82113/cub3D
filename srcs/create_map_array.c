@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/07 23:57:16 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:10:11 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ bool	initial_map_array(t_g_board *g)
 	t_node	*temp_node;
 	int		i;
 
-	g->m_info->map = malloc(sizeof(char *) * (*g->m_info->h + 1));
+	g->m_info->map = malloc(sizeof(char *) * (g->m_info->h + 1));
 	if (!g->m_info->map)
 		return (false);
 	i = 0;
 	temp_node = g->line_lst;
 	while (temp_node)
 	{
-		g->m_info->map[i] = malloc(sizeof(char) * (*g->m_info->w + 1));
+		g->m_info->map[i] = malloc(sizeof(char) * (g->m_info->w + 1));
 		if (!g->m_info->map[i])
 			return (false);
 		fill_the_map_array(temp_node->content, g->m_info->map[i],
-			*g->m_info->w);
+			g->m_info->w);
 		temp_node = temp_node->next;
 		i++;
 	}
@@ -58,7 +58,7 @@ bool	initial_map_array(t_g_board *g)
 bool	map_check(t_g_board *g_board)
 {
 	errno = 0;
-	if (wall_check(g_board->line_lst, *g_board->m_info->h))
+	if (wall_check(g_board->line_lst, g_board->m_info->h))
 		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
 		return (ft_error(INITIAL_MAP_ERR));
@@ -70,7 +70,7 @@ bool	map_check(t_g_board *g_board)
 bool	create_map_array(t_g_board *g_board)
 {
 	errno = 0;
-	if (*g_board->m_info->h < 3 || *g_board->m_info->w < 3)
+	if (g_board->m_info->h < 3 || g_board->m_info->w < 3)
 		return (ft_error(MAP_SIZE_ERR));
 	if (map_check(g_board))
 		return (true);

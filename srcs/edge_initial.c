@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:21:09 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/08 00:01:51 by kitsuki          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:11:03 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ bool	edge_add_direction(t_graph *graph, int src, t_g_board *g)
 	bool	stop_flag;
 
 	map = g->m_info->map;
-	x = *g->m_info->w;
+	x = g->m_info->w;
 	stop_flag = false;
 	dest = src - x;
 	if (map[dest / x][dest % x] != '1' && !stop_flag)
@@ -92,10 +92,10 @@ bool	edge_initial(t_graph *graph, t_g_board *g)
 
 	i = 0;
 	map = g->m_info->map;
-	while (i < *g->m_info->w * *g->m_info->h)
+	while (i < g->m_info->w * g->m_info->h)
 	{
-		if (map[i / *g->m_info->w][i % *g->m_info->w] != ' ' && map[i
-			/ *g->m_info->w][i % *g->m_info->w] != '1')
+		if (map[i / g->m_info->w][i % g->m_info->w] != ' ' && map[i
+			/ g->m_info->w][i % g->m_info->w] != '1')
 			stop_flag = edge_add_direction(graph, i, g);
 		if (stop_flag == true)
 			return (true);
