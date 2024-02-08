@@ -3,14 +3,15 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
+#    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2023/11/06 23:41:02 by kitsuki          ###   ########.fr        #
+#    Updated: 2024/02/08 23:07:57 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	cub3D
+BONUS_NAME		=	cub3D_bonus
 
 UNAME			=	$(shell uname)
 # CC and CFLAGS
@@ -37,8 +38,9 @@ else
 MLX_LIB			=	-L $(MLX_DIR) -lmlx_$(UNAME) -L/usr/X11R6/lib -lX11 -lXext -lm
 endif
 
-#cub3d
+#source directory
 SRC_DIR			=	./srcs
+#source
 SRC				=	ft_error.c					\
 					main.c						\
 					validation.c				\
@@ -71,17 +73,44 @@ SRC				=	ft_error.c					\
 					draw_util/repaint.c			\
 					character_judge.c			\
 
+#source in all path
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
+#obj directory
 OBJ_DIR			=	./objs
+#object file
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
-
+#dependence file
 DEPS			=	$(SRC:%.c=%.d)
+
+#bonus directory
+BONUS_DIR		=	./srcs/bonus
+
+#bonus source
+#####add file here ######
+BONUS_SRC		=				\
+
+
+#####add file here ######
+
+#bonus source in all path
+BONUS_SRCS		=	$(addprefix $(BONUS_DIR)/, $(BONUS_SRC))
+# bonus obj directory
+BONUS_OBJ_DIR	=	./objs/bonus
+# bonus object file
+BONUS_OBJS		=	$(addprefix $(BONUS_OBJ_DIR)/, $(BONUS_SRC))
+#dependence obj file
+BONUS_DEPS		=	$(BONUS_SRC%.c=%.d)
 
 all: libft_make mlx_make $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(IFLAGS) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
+
+bonus: libft_make mlx_make $(BONUS_NAME)
+
+$(BONUS_NAME): $(OBJS) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(IFLAGS) $(OBJS) $(BONUS_OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $$(dirname $@)
@@ -102,6 +131,7 @@ clean:
 fclean: clean
 	make -C $(LIBFT_DIR) fclean
 	rm -f ${NAME}
+	rm -f ${BONUS_NAME}
 
 re: fclean all
 
@@ -112,3 +142,4 @@ norm:
 .PHONY: all clean fclean re norm
 
 -include	$(DEPS)
+-include	$(BONUS_DEPS)

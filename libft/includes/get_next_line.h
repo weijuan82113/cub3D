@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 00:15:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/12 22:35:01 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/02/08 21:28:52 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ size_t	ft_strlen_gnl(const char *c);
 void	*ft_memchr_gnl(const void *s, int c, size_t n);
 char	*ft_strjoin_and_free_s1(char *s1, char *s2);
 char	*get_next_line(int fd);
+char	*ft_strdup_gnl(const char *src);
 
 #endif

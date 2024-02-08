@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_initial.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:37:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/12 21:54:18 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/02/08 23:06:45 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ static bool	game_board_initial(t_g_board *g_board)
 {
 	g_init(g_board);
 	g_board->m_info = malloc(sizeof(t_map_info));
+	//ft_lstadd_back(&mlx->malloc_check,ft_lstnew(g_board->m_info));
 	if (!g_board->m_info)
 		return (ft_error(MALLOC_ERR));
 	map_info_init(g_board->m_info);
 	g_board->identifier = ft_split(IDENTIFIER, '/');
+	//ft_lstadd_back(&mlx->malloc_check,ft_lstnew(g_board->identifier));
 	if (!g_board->identifier)
 		return (ft_error(MALLOC_ERR));
 	return (false);
@@ -47,6 +49,12 @@ bool	mlx_initial(t_mlx **dst)
 	t_mlx	*mlx;
 
 	mlx = malloc(sizeof(t_mlx));
+/*
+malloc check start
+*/
+
+//mlx->malloc_check = ft_lstnew(mlx);
+
 	*dst = mlx;
 	if (!mlx)
 		return (true);
@@ -57,6 +65,7 @@ bool	mlx_initial(t_mlx **dst)
 	if (!mlx->p_win)
 		return (ft_error(MLX_INIT_ERR));
 	mlx->g = malloc(sizeof(t_g_board));
+	//ft_lstadd_back(&mlx->malloc_check,ft_lstnew(mlx->g));
 	if (!mlx->g)
 		return (ft_error(MALLOC_ERR));
 	if (game_board_initial(mlx->g))
