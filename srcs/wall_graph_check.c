@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall_bfs_check.c                                   :+:      :+:    :+:   */
+/*   wall_graph_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/12 21:17:30 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/02/12 23:47:25 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_graph	*graph_create(int vertex_count, char **map, int x)
 	return (graph);
 }
 
-bool	wall_bfs_check(t_g_board *g)
+bool	wall_graph_check(t_g_board *g)
 {
 	t_graph	*graph;
 
@@ -73,11 +73,12 @@ bool	wall_bfs_check(t_g_board *g)
 		free_graph(graph);
 		return (ft_error(EDGE_INITIAL_ERR));
 	}
-	if (bfs_check(graph, g->p_position, false))
+	if (graph_check(graph, false))
 	{
 		free_graph(graph);
 		return (true);
 	}
+	//system("leak -q cub3D");
 	free_graph(graph);
 	return (false);
 }

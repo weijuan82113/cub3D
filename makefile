@@ -6,7 +6,7 @@
 #    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:58:58 by wchen             #+#    #+#              #
-#    Updated: 2024/02/08 23:07:57 by wchen            ###   ########.fr        #
+#    Updated: 2024/02/12 22:50:03 by wchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,9 +58,9 @@ SRC				=	ft_error.c					\
 					free_all.c					\
 					free_graph.c				\
 					ft_lst_free.c				\
-					wall_bfs_check.c			\
+					wall_graph_check.c			\
 					edge_initial.c				\
-					bfs_check.c					\
+					graph_check.c					\
 					rgb_atoi.c					\
 					debug/debug_printf.c		\
 					debug/cont_debug_printf.c	\
