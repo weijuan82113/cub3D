@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:08:32 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/11 22:38:45 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/02/12 21:53:32 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	ft_imglstdelone(t_img_node *lst, void *p_mlx)
 		mlx_destroy_image(p_mlx, lst->p_img);
 	free(lst->obj);
 	free(lst->img_path);
+	lst->obj = NULL;
+	lst->img_path = NULL;
 	free(lst);
 }
 

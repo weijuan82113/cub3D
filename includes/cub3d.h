@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/08 22:24:00 by wchen            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:51:33 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ typedef struct s_mlx
 	void		*path;
 	t_g_board	*g;
 	t_player	player;
-	t_node		*malloc_check;
 }				t_mlx;
 
 /* ************************** */
@@ -139,10 +138,5 @@ void				print_graph(t_graph *graph);
 void				debug_print_linelst(t_g_board *g_board);
 void				debug_print_colorlst(t_color_node *color_lst);
 void				debug_print_imglst(t_img_node *img_lst);
-
-
-/*debug
-bool	game_board_initial(t_g_board *g_board,t_mlx *mlx)
-*/
 
 #endif
