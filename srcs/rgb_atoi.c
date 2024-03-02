@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rgb_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 23:18:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/06 22:11:27 by wchen            ###   ########.fr       */
+/*   Updated: 2024/02/12 21:30:11 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	rgb_count(int rgb_int, int index)
 
 	i = 0;
 	ret_num = rgb_int;
-	while (i < (2 - index))
+	while (i < 2 - index)
 	{
 		ret_num *= 256;
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:06:52 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/08 22:42:52 by wchen            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:56:42 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	free_all(t_mlx *mlx)
 			mlx_destroy_window(mlx->p_mlx, mlx->p_win);
 		}
 		mlx_destroy_display(mlx->p_mlx);
+		free(mlx->p_mlx);
 	}
 	free(mlx);
 }
