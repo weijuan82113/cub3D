@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:37:20 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 23:24:26 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/07 23:50:08 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ bool				fd_check(t_mlx *mlx, int fd);
 bool				line_check(char *line, t_mlx *mlx, int *x, int *y);
 bool				line_judge(t_g_board *g_board, char *line, int *x, int *y);
 bool				create_map_array(t_g_board *g_board);
-bool				wall_check(t_node *line_lst, int h);
+bool				wall_check(char **map, int h);
 bool				identifier_judge(t_mlx *mlx, char *line);
 bool				character_judge(t_g_board *g, char *line, int *x, int *y);
 bool				add_img_lst(t_mlx *mlx, char **split);
@@ -128,7 +128,7 @@ void				ft_imglstclear(t_img_node **lst, void *p_mlx);
 int					rgb_atoi(char *rgb);
 bool				wall_graph_check(t_g_board *g);
 bool				edge_initial(t_graph *graph, t_g_board *g);
-bool				graph_check(t_graph *graph, bool result);
+bool				graph_check(t_graph *graph);
 /*Error*/
 bool				ft_error(char *err_msg);
 //debug

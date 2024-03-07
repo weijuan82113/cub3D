@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:46:27 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 23:47:45 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/07 23:49:28 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ bool	initial_map_array(t_g_board *g)
 bool	map_check(t_g_board *g_board)
 {
 	errno = 0;
-	if (wall_check(g_board->line_lst, g_board->m_info->h))
-		return (ft_error(WALL_ERR));
 	if (!initial_map_array(g_board))
 		return (ft_error(INITIAL_MAP_ERR));
+	if (wall_check(g_board->m_info->map, g_board->m_info->h))
+		return (ft_error(WALL_ERR));
 	if (wall_graph_check(g_board))
 		return (true);
 	return (false);

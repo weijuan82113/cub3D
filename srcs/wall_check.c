@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:31:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/02 21:33:43 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/07 23:53:58 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,25 @@ bool	front_back_judge(char *line)
 	if (line[i] != '1')
 		return (true);
 	str_len = ft_strlen(line);
-	if (line[str_len - 1] == '\n')
-		return (line[str_len - 2] != '1');
+	if (str_len != 0 && line[str_len - 1] == ' ')
+		str_len --;
 	return (line[str_len - 1] != '1');
 }
 
-bool	wall_check(t_node *line_lst, int h)
+bool	wall_check(char **map, int h)
 {
 	int		i;
-	t_node	*temp_node;
 
 	i = 0;
-	temp_node = line_lst;
-	while (temp_node)
+	while (map)
 	{
 		if (i == 0 || (i + 1) == h)
 		{
-			if (top_bottom_judge(temp_node->content))
+			if (top_bottom_judge(map[i]))
 				return (true);
 		}
-		else if (front_back_judge(temp_node->content))
+		else if (front_back_judge(map[i]))
 			return (true);
-		temp_node = temp_node->next;
 		i++;
 	}
 	return (false);

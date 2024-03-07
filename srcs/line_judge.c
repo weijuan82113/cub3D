@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:56:08 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/12 21:12:04 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/03/07 23:42:25 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	save_line_lst(t_g_board *g_board, char *line)
 
 	str_len = 0;
 	str_len = ft_strlen_ntr(line);
+	if (str_len != 0 && line[str_len - 1] == ' ')
+		str_len --;
 	if (str_len > g_board->m_info->w)
 		g_board->m_info->w = str_len;
 	if (!g_board->line_lst)

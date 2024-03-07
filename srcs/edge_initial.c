@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edge_initial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:21:09 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 23:25:31 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/07 22:52:41 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,16 @@ bool	edge_initial(t_graph *graph, t_g_board *g)
 {
 	int		i;
 	char	**map;
-	bool	stop_flag;
+	char	map_c;
 
 	i = 0;
 	map = g->m_info->map;
 	while (i < g->m_info->w * g->m_info->h)
 	{
-		if (map[i / g->m_info->w][i % g->m_info->w] != ' ' && map[i
-			/ g->m_info->w][i % g->m_info->w] != '1')
-			stop_flag = edge_add_direction(graph, i, g);
-		if (stop_flag == true)
-			return (true);
+		map_c = map[i / g->m_info->w][i % g->m_info->w];
+		if (map_c != ' ' && map_c != '1')
+			if (edge_add_direction(graph, i, g))
+				return (true);
 		i++;
 	}
 	return (false);

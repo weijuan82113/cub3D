@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_graph_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:17:29 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 23:47:25 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/07 22:46:58 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_graph	*graph_create(int vertex_count, char **map, int x)
 bool	wall_graph_check(t_g_board *g)
 {
 	t_graph	*graph;
+	bool	result;
 
 	errno = 0;
 	graph = graph_create(g->m_info->h * g->m_info->w, g->m_info->map,
@@ -73,12 +74,7 @@ bool	wall_graph_check(t_g_board *g)
 		free_graph(graph);
 		return (ft_error(EDGE_INITIAL_ERR));
 	}
-	if (graph_check(graph, false))
-	{
-		free_graph(graph);
-		return (true);
-	}
-	//system("leak -q cub3D");
+	result = graph_check(graph);
 	free_graph(graph);
-	return (false);
+	return (result);
 }
