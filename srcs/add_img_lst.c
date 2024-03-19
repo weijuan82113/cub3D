@@ -6,11 +6,29 @@
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 21:39:57 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/19 22:32:38 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static t_img_node	*free_img(int type, t_img_node *img)
+{
+	if (type == OBJ)
+		free(img);
+	else if (type == IMG_PATH)
+	{
+		free(img->obj);
+		free(img);
+	}
+	else if (type == P_IMG)
+	{
+		free(img->img_path);
+		free(img->obj);
+		free(img);
+	}
+	return (NULL);
+}
 
 static t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 {
@@ -21,27 +39,15 @@ static t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 		return (NULL);
 	img->obj = ft_cut_tr(obj);
 	if (!img->obj)
-	{
-		free(img);
-		return (NULL);
-	}
+		return (free_img(OBJ, img));
 	img->img_path = ft_cut_tr(path);
 	if (!img->img_path)
-	{
-		free(img->obj);
-		free(img);
-		return (NULL);
-	}
+		return (free_img(IMG_PATH, img));
 	img->h = IMG_H;
 	img->w = IMG_W;
 	img->p_img = mlx_xpm_file_to_image(mlx, img->img_path, &img->h, &img->w);
 	if (!img->p_img)
-	{
-		free(img->img_path);
-		free(img->obj);
-		free(img);
-		return (NULL);
-	}
+		return (free_img(P_IMG, img));
 	img->path = mlx_get_data_addr(img->p_img, &img->bpp, &img->length,
 			&img->endian);
 	img->next = NULL;
