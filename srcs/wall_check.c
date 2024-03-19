@@ -6,23 +6,27 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:31:08 by wchen             #+#    #+#             */
-/*   Updated: 2024/03/07 23:53:58 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/03/19 21:52:17 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	skip_space(char *line)
+static size_t	skip_space(char *line, bool inverse)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (line[i] == ' ')
+	while (line[i] == ' ' || (inverse && line[i] != '\0'))
 		i++;
-	return (i);
+	if (!inverse)
+		return (i);
+	while (i > 0 && line[i - 1] == ' ')
+		i --;
+	return (i - 1);
 }
 
-bool	top_bottom_judge(char *line)
+static bool	top_bottom_judge(char *line)
 {
 	int	i;
 
@@ -36,28 +40,28 @@ bool	top_bottom_judge(char *line)
 	return (false);
 }
 
-bool	front_back_judge(char *line)
+static bool	front_back_judge(char *line)
 {
-	int	i;
-	int	str_len;
+	size_t	front;
+	size_t	back;
 
-	i = 0;
-	str_len = 0;
-	i = skip_space(line);
-	if (line[i] != '1')
+	front = skip_space(line, false);
+	if (front == ft_strlen(line))
+		return (false);
+	if (line[front] != '1')
 		return (true);
-	str_len = ft_strlen(line);
-	if (str_len != 0 && line[str_len - 1] == ' ')
-		str_len --;
-	return (line[str_len - 1] != '1');
+	back = skip_space(line, true);
+	if (line[back] != '1')
+		return (true);
+	return (false);
 }
 
 bool	wall_check(char **map, int h)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (map)
+	while (map[i])
 	{
 		if (i == 0 || (i + 1) == h)
 		{
