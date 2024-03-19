@@ -6,7 +6,7 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:52:26 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/12 22:51:58 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/03/19 23:54:14 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,28 @@ static int	split_num(char **split)
 	return (i);
 }
 
+static char	**generate_line_split(const char *line)
+{
+	char	*tmp;
+	char	**ret;
+
+	tmp = ft_strtrim(line, " \r\n");
+	if (tmp == NULL)
+		return (NULL);
+	ret = ft_split(tmp, ' ');
+	free(tmp);
+	return (ret);
+}
+
 static bool	check_identifier(t_mlx *mlx, char *line)
 {
 	char	**line_split;
 	bool	result;
 
 	errno = 0;
-	line_split = ft_split(line, ' ');
+	line_split = generate_line_split(line);
+	if (line_split == NULL)
+		return (ft_error(MALLOC_ERR));
 	if (split_num(line_split) != 2)
 	{
 		free_split(line_split);

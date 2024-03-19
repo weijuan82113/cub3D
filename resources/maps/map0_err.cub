@@ -1,7 +1,7 @@
-NO ./images/komurokei.xpm
-SO ./images/bluestone.xpm
-WE ./images/colorstone.xpm
-EA ./images/greystone.xpm
+NO ./resources/textures/bluestone.xpm
+SO ./resources/textures/colorstone.xpm
+WE ./resources/textures/greystone.xpm
+EA ./resources/textures/purplestone.xpm
 F 220,100,0
 C 225,30,0
 

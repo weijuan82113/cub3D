@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2023/10/28 17:22:29 by wchen            ###   ########.fr        #
+#    Updated: 2024/03/19 23:53:22 by kitsuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,8 +79,7 @@ LIBFT_SRC		=ft_lstmap.c					\
 				ft_dequeue.c					\
 				ft_enqueue.c					\
 				ft_lst_ascsort.c				\
-				ft_lst_descsort.c				\
-				ft_cut_tr.c
+				ft_lst_descsort.c				
 
 GNL_SRC			=get_next_line.c				\
 				get_next_line_utils.c

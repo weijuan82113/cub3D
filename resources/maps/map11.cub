@@ -1,0 +1,23 @@
+NO ./resources/textures/bluestone.xpm
+SO ./resources/textures/colorstone.xpm
+WE ./resources/textures/greystone.xpm
+EA ./resources/textures/purplestone.xpm
+F 120,120,120
+C 120,120,120
+
+111111111111
+100010101001
+1000000W1001
+100000000101
+111111111111
+1
+1
+
+111111111111
+100000111001
+111111111111
+1
+1
+11111111
+     101
+     111

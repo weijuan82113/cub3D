@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_img_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2024/03/19 22:32:38 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/19 23:48:58 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static t_img_node	*ft_new_imglst(void *mlx, char *obj, char *path)
 	img = malloc(sizeof(t_img_node));
 	if (!img)
 		return (NULL);
-	img->obj = ft_cut_tr(obj);
+	img->obj = ft_strdup(obj);
 	if (!img->obj)
 		return (free_img(OBJ, img));
-	img->img_path = ft_cut_tr(path);
+	img->img_path = ft_strdup(path);
 	if (!img->img_path)
 		return (free_img(IMG_PATH, img));
 	img->h = IMG_H;

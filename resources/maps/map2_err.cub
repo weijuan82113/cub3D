@@ -1,7 +1,7 @@
-NO ./images/bluestone.xpm
-SO ./images/colorstone.xpm
-WE ./images/redbrick.xpm
-EA ./images/redbrick.xpm
+NO ./resources/textures/bluestone.xpm
+SO ./resources/textures/colorstone.xpm
+WE ./resources/textures/greystone.xpm
+EA ./resources/textures/purplestone.xpm
 
 F 220,100,0
 

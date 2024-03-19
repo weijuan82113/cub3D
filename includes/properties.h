@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   properties.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2024/03/19 22:27:32 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/19 23:04:57 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define IDENTIFIER_TYPE_ERR 		"Error\nThe type of identifier type is Wrong"
 # define IDENTIFIER_PATH_ERR 		"Error\nThe path of identifier path is Wrong"
 # define MALLOC_ERR 				"Error\nMalloc Error"
-# define INPUT_EMPTY_LINE_ERR 		"Error\nCan not input empty line in map"
 # define MAP_SIZE_ERR				"Error\nThe size of map is wrong"
 # define CHARACTER_ERR				"Error\nThe character in map is wrong"
 # define WALL_ERR					"Error\nThe map is not surrended by wall"

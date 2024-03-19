@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_color_lst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:59:46 by wchen             #+#    #+#             */
-/*   Updated: 2024/02/12 21:29:40 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/19 23:52:56 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_color_node	*ft_new_colorlst(char *obj, int rgb)
 	color = malloc(sizeof(t_color_node));
 	if (!color)
 		return (NULL);
-	color->obj = ft_cut_tr(obj);
+	color->obj = ft_strdup(obj);
 	if (!color->obj)
 	{
 		free(color);

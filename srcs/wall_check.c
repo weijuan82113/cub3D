@@ -6,24 +6,17 @@
 /*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:31:08 by wchen             #+#    #+#             */
-/*   Updated: 2024/03/19 21:52:17 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/03/19 23:00:08 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static size_t	skip_space(char *line, bool inverse)
+static bool	is_movable_area(char area)
 {
-	size_t	i;
-
-	i = 0;
-	while (line[i] == ' ' || (inverse && line[i] != '\0'))
-		i++;
-	if (!inverse)
-		return (i);
-	while (i > 0 && line[i - 1] == ' ')
-		i --;
-	return (i - 1);
+	if (area == ' ' || area == '1')
+		return (false);
+	return (true);
 }
 
 static bool	top_bottom_judge(char *line)
@@ -33,7 +26,7 @@ static bool	top_bottom_judge(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '0')
+		if (is_movable_area(line[i]))
 			return (true);
 		i++;
 	}
@@ -42,16 +35,14 @@ static bool	top_bottom_judge(char *line)
 
 static bool	front_back_judge(char *line)
 {
-	size_t	front;
-	size_t	back;
+	size_t	length;
 
-	front = skip_space(line, false);
-	if (front == ft_strlen(line))
+	length = ft_strlen(line);
+	if (length == 0)
 		return (false);
-	if (line[front] != '1')
+	if (is_movable_area(line[0]))
 		return (true);
-	back = skip_space(line, true);
-	if (line[back] != '1')
+	if (is_movable_area(line[length - 1]))
 		return (true);
 	return (false);
 }

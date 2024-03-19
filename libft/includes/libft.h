@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:36:18 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/01 19:58:36 by wchen            ###   ########.fr       */
+/*   Updated: 2024/03/19 23:53:28 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,5 @@ void				ft_dequeue(t_queue *q);
 void				merge_sort(t_node **headRef);
 void				ft_lst_ascsort(t_node **headRef);
 void				ft_lst_descsort(t_node **headRef);
-char				*ft_cut_tr(char *src_str);
 
 #endif
