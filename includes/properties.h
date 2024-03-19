@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   properties.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:57:31 by wchen             #+#    #+#             */
-/*   Updated: 2023/11/08 21:22:45 by kitsuki          ###   ########.fr       */
+/*   Updated: 2024/03/19 22:27:32 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,8 @@
 # define LEFT						3
 # define RIGHT						4
 
+//IMG FREE TYEP
+# define OBJ 0
+# define IMG_PATH 1
+# define P_IMG 2
 #endif
