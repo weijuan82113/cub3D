@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cont_debug_printf_bonus.c                          :+:      :+:    :+:   */
+/*   free_graph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 23:39:18 by kitsuki           #+#    #+#             */
-/*   Updated: 2024/03/27 02:04:04 by wchen            ###   ########.fr       */
+/*   Created: 2023/10/29 20:08:21 by wchen             #+#    #+#             */
+/*   Updated: 2023/11/01 20:47:02 by wchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//printf map array
-void	debug_print_map_array(char **map)
+void	free_graph(t_graph *graph)
 {
 	int	i;
 
-	printf("debug_print_map_array\n");
+	if (!graph)
+		return ;
+	if (!graph->adj_lsts)
+		return ;
 	i = 0;
-	while (map[i])
+	while (i < graph->num_vertex)
 	{
-		printf("%s\n", map[i]);
+		if (graph->adj_lsts[i])
+			ft_lstclear(&graph->adj_lsts[i], free);
 		i++;
 	}
+	free(graph->adj_lsts);
+	free(graph->visited);
+	free(graph);
 }

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cont_debug_printf_bonus.c                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wchen <wchen@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kitsuki <kitsuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 23:39:18 by kitsuki           #+#    #+#             */
-/*   Updated: 2024/03/27 02:04:04 by wchen            ###   ########.fr       */
+/*   Created: 2023/09/25 21:03:56 by wchen             #+#    #+#             */
+/*   Updated: 2023/11/06 23:42:47 by kitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//printf map array
-void	debug_print_map_array(char **map)
+bool	ft_error(char *err_msg)
 {
-	int	i;
+	char	tr;
 
-	printf("debug_print_map_array\n");
-	i = 0;
-	while (map[i])
+	tr = '\n';
+	if (errno != 0)
+		perror(err_msg);
+	else
 	{
-		printf("%s\n", map[i]);
-		i++;
+		ft_putstr_fd(err_msg, STDERR_FILENO);
+		write(STDERR_FILENO, &tr, 1);
 	}
+	return (true);
 }
